@@ -2,6 +2,7 @@
 /app/config/parameters.yml
 /build/
 /phpunit.xml
+/app/phpunit.xml
 /var/*
 !/var/cache
 /var/cache/*
@@ -16,4 +17,18 @@
 /vendor/
 /web/bundles/
 /web/build/
+/web/uploads/
 /node_modules/
+
+# Email spool folder
+/app/spool/*
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+
+# Backup entities generated with doctrine:generate:entities command
+**/Entity/*~
