@@ -1,0 +1,27 @@
+AppBundle\Entity\Participant:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ParticipantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+            options:
+                unsigned: true
+    fields:
+        age:
+            type: smallint
+            options:
+                unsigned: true
+        gender:
+            type: string
+            length: 7
+        specialty:
+            type: string
+            length: 255
+        place:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
