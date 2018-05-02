@@ -2,8 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Participant;
+use AppBundle\Form\ParticipantType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -15,6 +18,30 @@ class DefaultController extends Controller
     {
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("/participant", name="participant")
+     */
+    public function participantAction(Request $request)
+    {
+    	$participant = new Participant();
+    	$form = $this->createForm(ParticipantType::class, $participant);
+    	$form->add('save', SubmitType::class);
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+        	$em = $this->getDoctrine()->getManager();
+            $em->persist($participant);
+            $em->flush();
+
+            // return $this->redirectToRoute('task_success');
+        }
+
+        return $this->render('default/participant.html.twig', [
+        	'form' => $form->createView(),
         ]);
     }
 }
