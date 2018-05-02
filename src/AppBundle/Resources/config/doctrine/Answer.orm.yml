@@ -1,0 +1,27 @@
+AppBundle\Entity\Answer:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\AnswerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+            options:
+                unsigned: true
+    fields:
+        questionId:
+            type: integer
+            options:
+                unsigned: true
+        data:
+            type: array
+    manyToOne:
+        participant:
+            targetEntity: Participant
+            inversedBy: answers
+            joinColumn:
+                name: participant_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

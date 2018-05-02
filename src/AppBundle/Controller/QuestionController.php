@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Answer;
+use AppBundle\Entity\Participant;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,25 +33,32 @@ class QuestionController extends Controller
      */
     public function questionShowAction(Request $request)
     {
-        $data = $this->questionData;
+        // @TODO - get data from file
+        // @TODO - get participant from session and db
+        $questionData = $this->questionData;
+        $participant = $this->getDoctrine()->getRepository('AppBundle:Participant')->find(1);
 
         $form = $this->createFormBuilder()
             ->add('answers', ChoiceType::class, [
-                'label' => $data['text'],
-                'choices' => $data['answers'],
+                'label' => $questionData['text'],
+                'choices' => $questionData['answers'],
                 'expanded' => true,
-                'multiple' => false,
+                'multiple' => true,
             ])
             ->add('save', SubmitType::class)
             ->getForm()
         ;
         
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // $em = $this->getDoctrine()->getManager();
-            // $em->persist($participant);
-            // $em->flush();
+            $data = $form->getData()['answers'];
+            $answer = new Answer($participant, $questionData['id'], $data);
+            
+            dump($answer);
+            // exit();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($answer);
+            $em->flush();
 
             // return $this->redirectToRoute('task_success');
         }
