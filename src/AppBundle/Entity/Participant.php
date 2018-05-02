@@ -33,6 +33,15 @@ class Participant
     private $place;
 
 
+
+    public function __construct()
+    {
+        $this->gender = 'F';
+        $this->age = '40';
+        $this->specialty = 'cardio';
+        $this->place = 'Nantes';
+    }
+
     /**
      * Get id
      *

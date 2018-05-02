@@ -17,7 +17,6 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -37,7 +36,7 @@ class DefaultController extends Controller
             $em->persist($participant);
             $em->flush();
 
-            // return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('question_show');
         }
 
         return $this->render('default/participant.html.twig', [
