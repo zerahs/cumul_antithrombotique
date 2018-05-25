@@ -32,7 +32,8 @@ class Participant
      */
     private $place;
 
-
+    private $randomizationGroup;
+    private $randomizationNumber;
 
     public function __construct()
     {
@@ -147,5 +148,54 @@ class Participant
     {
         return $this->place;
     }
-}
 
+
+    /**
+     * Set randomizationGroup
+     *
+     * @param string $randomizationGroup
+     *
+     * @return Participant
+     */
+    public function setRandomizationGroup($randomizationGroup)
+    {
+        $this->randomizationGroup = $randomizationGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get randomizationGroup
+     *
+     * @return string
+     */
+    public function getRandomizationGroup()
+    {
+        return $this->randomizationGroup;
+    }
+
+
+    /**
+     * Set randomizationNumber
+     *
+     * @param integer $randomizationNumber
+     *
+     * @return Participant
+     */
+    public function setRandomizationNumber($randomizationNumber)
+    {
+        $this->randomizationNumber = $randomizationNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get randomizationNumber
+     *
+     * @return integer
+     */
+    public function getRandomizationNumber()
+    {
+        return $this->randomizationNumber;
+    }
+}

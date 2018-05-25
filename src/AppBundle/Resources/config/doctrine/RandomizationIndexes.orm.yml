@@ -1,0 +1,30 @@
+AppBundle\Entity\RandomizationIndexes:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\RandomizationIndexesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+            options:
+                unsigned: true
+    fields:
+        cardio:
+            type: integer
+            options:
+                unsigned: true
+        mg:
+            type: integer
+            options:
+                unsigned: true
+        control:
+            type: integer
+            options:
+                unsigned: true
+        tool:
+            type: integer
+            options:
+                unsigned: true
+    lifecycleCallbacks: {  }

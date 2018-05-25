@@ -3,6 +3,7 @@
 parameters:
     #parameter_name: value
     vignettes_dir: "%kernel.project_dir%/data/vignettes"
+    randomization_dir: "%kernel.project_dir%/data/randomization"
 
 services:
     # default configuration for services in *this* file
@@ -48,3 +49,13 @@ services:
             - AppBundle\Entity\Answer
         public: true
 
+    AppBundle\Repository\RandomizationIndexesRepository:
+        factory: 'Doctrine\ORM\EntityManagerInterface:getRepository'
+        arguments:
+            - AppBundle\Entity\RandomizationIndexes
+        public: true
+
+    AppBundle\Manager\RandomizationManager:
+        arguments:
+            $randomizationDir: "%randomization_dir%"
+        public: true

@@ -26,28 +26,51 @@ class DefaultController extends Controller
     public function participantAction(Request $request)
     {
         // @TODO redirect to questions if participant in session
-    	$participant = new Participant();
-    	$form = $this->createForm(ParticipantType::class, $participant);
-    	$form->add('save', SubmitType::class);
+        // @TODO clear session when participant finished all questions
+        $participant = new Participant();
+        $form = $this->createForm(ParticipantType::class, $participant);
+        $form->add('save', SubmitType::class);
         
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        	$em = $this->getDoctrine()->getManager();
+            // Randomization
+            $spe = $participant->getSpecialty();
+            $manager = $this->get('AppBundle\Manager\RandomizationManager');
+            if($spe == 'cardio'){
+                $randomization = $manager->randomizeCardio();
+            }
+            elseif($spe == 'mg'){
+                $randomization = $manager->randomizeMg();
+            }
+            else{
+                // If not valid answers, redirect to exit
+                return $this->redirectToRoute('exit');
+            }
+            $participant->setRandomizationNumber($randomization['number']);
+            $participant->setRandomizationGroup($randomization['group']);
+
+            // Clear session and save participant
+            $em = $this->getDoctrine()->getManager();
             $em->persist($participant);
             $em->flush();
-
-            // If not valid answers, redirect to exit
-            // TODO randomisation group with or without tool
-
-            // Save participant to session
+            $this->get('session')->clear();
             $this->get('session')->set('participant_id', $participant->getId());
 
             return $this->redirectToRoute('question_show');
         }
 
         return $this->render('default/participant.html.twig', [
-        	'form' => $form->createView(),
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/exit", name="exit")
+     */
+    public function exitAction()
+    {
+        return $this->render('default/exit.html.twig', [
         ]);
     }
 }

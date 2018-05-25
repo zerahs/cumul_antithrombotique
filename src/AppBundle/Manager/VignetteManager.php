@@ -12,6 +12,7 @@ class VignetteManager
     private $questionId;
     private $vignetteId;
     private $participantId;
+    private $session;
     private $answerRepository;
 
     public function __construct(Vignette $vignette, SessionInterface $session, AnswerRepository $answerRepository)
@@ -26,7 +27,7 @@ class VignetteManager
     {
         $this->loadVignette();
         $this->questionId = $this->session->get('question_id', 0);
-        $this->participantId = $this->session->get('participant_id'); //TODO error when no participant => redirect to homepage
+        $this->participantId = $this->session->get('participant_id'); 
     }
 
     public function getVignetteId()

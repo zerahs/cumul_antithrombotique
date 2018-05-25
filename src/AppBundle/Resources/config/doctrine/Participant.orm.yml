@@ -24,4 +24,12 @@ AppBundle\Entity\Participant:
         place:
             type: string
             length: 255
+        randomizationGroup:
+            type: string
+            length: 7
+        randomizationNumber:
+            type: integer
+            unique: true
+            options:
+                unsigned: true
     lifecycleCallbacks: {  }
