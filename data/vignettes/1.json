@@ -1,0 +1,78 @@
+{
+    "id":1,
+    "description": "Vous voyez en consultation M A, âgé de 86 ans (poids 81 kg, taille 1m72). Il est veuf, fumeur (10 cigarettes par jour, 50 PA), autonome au domicile.\nIl n’a pas d’antécédent particulier et ne prend aucun traitement. Son dernier bilan biologique ne trouvait pas d’anomalie (créatininémie 77 micromol/L, clairance de la créatinine (Cockcroft) : 70 ml.min-1 ).\nIl vient vous voir car il présente depuis plus d’une semaine des palpitations à l’effort et au repos. Vous réalisez un électrocardiogramme dans votre cabinet et vous diagnostiquez une arythmie cardiaque par fibrillation atriale (ACFA).  Le bilan biologique est sans particularité (en particulier le ionogramme sanguin et la TSH). L’échographie cardiaque retrouve une oreillette gauche dilatée sans anomalie valvulaire.",
+    "questions":
+    [
+        {
+            "ref":1,
+            "text":"Vous refaites une ordonnance globale lors de cette consultation. Combien de traitements antithrombotiques prescrivez-vous ?",
+            "answers":[0,1,2,3]
+        },
+        {
+            "ref":2,
+            "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation?",
+            "answers":[
+                "warfarine (coumadine®)",
+                "rivaroxaban (xarelto®)",
+                "apixaban (eliquis®)",
+                "aspirine (aspégic®)",
+                "clopidogrel (plavix®)"
+            ]
+        },
+        {
+            "ref": "3a",
+            "text":"A quelle dose allez-vous prescrire cette molécule (warfarine (coumadine®)) ?",
+            "answers":[
+                "objectif d’INR entre 2-3",
+                "objectif d’INR entre 2.5-3.5"
+            ]
+        },
+        {
+            "ref": "3b",
+            "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
+            "answers":[
+                "15 mg par jour",
+                "20 mg par jour"
+            ]
+        },
+        {
+            "ref": "3c",
+            "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
+            "answers":[
+                "2.5 mg matin et soir",
+                "5 mg matin et soir"
+            ]
+        },
+        {
+            "ref": "3d",
+            "text":"A quelle dose allez-vous prescrire cette molécule (aspirine (aspégic®)) ?",
+            "answers":[
+                "75-100 mg/jour",
+                "300 mg/jour"
+            ]
+        },
+        {
+            "ref": "3e",
+            "text":"A quelle dose allez-vous prescrire cette molécule (clopidogrel (plavix®)) ?",
+            "answers":[
+                "75 mg/jour",
+                "300 mg/jour"
+            ]
+        },
+        {
+            "ref": "4",
+            "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
+            "answers":[
+                "1 mois",
+                "6 mois",
+                "12 mois",
+                "Au long cours"
+            ]
+        },
+        {
+            "ref": "5",
+            "text":"Sur une échelle de 0 à 10, quel est votre degré de certitude quant à l’adéquation de votre prescription par rapport aux recommandations en vigueur ?",
+            "answers":[1,2,3,4,5,6,7,8,9,10]
+        }
+    ]
+}

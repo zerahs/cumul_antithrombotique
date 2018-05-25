@@ -36,6 +36,9 @@ class DefaultController extends Controller
             $em->persist($participant);
             $em->flush();
 
+            // If valid answers, TODO randomisation
+            // Else redirect to exit
+
             return $this->redirectToRoute('question_show');
         }
 

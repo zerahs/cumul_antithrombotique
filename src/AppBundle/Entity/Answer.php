@@ -14,10 +14,8 @@ class Answer
      */
     private $id;
 
-    /**
-     * @var int
-     */
-    private $questionId;
+    private $questionRef;
+    private $vignetteId;
     
     /**
      * @var array
@@ -30,10 +28,11 @@ class Answer
     private $participant;
 
 
-    public function __construct(Participant $participant, $questionId, array $data)
+    public function __construct(Participant $participant, $vignetteId, $questionRef, array $data)
     {
         $this->participant = $participant;
-        $this->questionId = $questionId;
+        $this->vignetteId = $vignetteId;
+        $this->questionRef = $questionRef;
         $this->data = $data;
     }
 
@@ -47,28 +46,16 @@ class Answer
         return $this->id;
     }
 
-    /**
-     * Set questionId
-     *
-     * @param integer $questionId
-     *
-     * @return Answer
-     */
-    public function setQuestionId($questionId)
+    public function setQuestionRef($questionRef)
     {
-        $this->questionId = $questionId;
+        $this->questionRef = $questionRef;
 
         return $this;
     }
 
-    /**
-     * Get questionId
-     *
-     * @return int
-     */
-    public function getQuestionId()
+    public function getQuestionRef()
     {
-        return $this->questionId;
+        return $this->questionRef;
     }
 
 

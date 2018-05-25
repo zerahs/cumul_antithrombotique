@@ -11,16 +11,18 @@ AppBundle\Entity\Answer:
             options:
                 unsigned: true
     fields:
-        questionId:
+        vignetteId:
             type: integer
             options:
                 unsigned: true
+        questionRef:
+            type: string
+            length: 7
         data:
             type: array
     manyToOne:
         participant:
             targetEntity: Participant
-            inversedBy: answers
             joinColumn:
                 name: participant_id
                 referencedColumnName: id
