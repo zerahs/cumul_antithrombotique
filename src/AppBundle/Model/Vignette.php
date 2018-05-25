@@ -4,7 +4,6 @@ namespace AppBundle\Model;
 
 class Vignette
 {
-    // private $participant;
     private $dir;
     private $json;
 
@@ -21,9 +20,14 @@ class Vignette
         $this->json = json_decode($vignette, true);
     }
 
-    public function getJson()
+    public function getQuestions()
     {
-        return $this->json;
+        return $this->json["questions"];
+    }
+
+    public function getQuestionData($id)
+    {
+        return $this->getQuestions()[$id];
     }
 
 }

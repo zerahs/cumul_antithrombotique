@@ -38,3 +38,13 @@ services:
     AppBundle\Model\Vignette:
         arguments: ["%vignettes_dir%"]
         public: true
+
+    AppBundle\Manager\VignetteManager:
+        public: true
+
+    AppBundle\Repository\AnswerRepository:
+        factory: 'Doctrine\ORM\EntityManagerInterface:getRepository'
+        arguments:
+            - AppBundle\Entity\Answer
+        public: true
+

@@ -25,6 +25,7 @@ class DefaultController extends Controller
      */
     public function participantAction(Request $request)
     {
+        // @TODO redirect to questions if participant in session
     	$participant = new Participant();
     	$form = $this->createForm(ParticipantType::class, $participant);
     	$form->add('save', SubmitType::class);
@@ -36,8 +37,11 @@ class DefaultController extends Controller
             $em->persist($participant);
             $em->flush();
 
-            // If valid answers, TODO randomisation
-            // Else redirect to exit
+            // If not valid answers, redirect to exit
+            // TODO randomisation group with or without tool
+
+            // Save participant to session
+            $this->get('session')->set('participant_id', $participant->getId());
 
             return $this->redirectToRoute('question_show');
         }

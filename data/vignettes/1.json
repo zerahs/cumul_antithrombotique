@@ -4,12 +4,12 @@
     "questions":
     [
         {
-            "ref":1,
+            "ref":"1",
             "text":"Vous refaites une ordonnance globale lors de cette consultation. Combien de traitements antithrombotiques prescrivez-vous ?",
             "answers":[0,1,2,3]
         },
         {
-            "ref":2,
+            "ref":"2",
             "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation?",
             "answers":[
                 "warfarine (coumadine®)",
@@ -21,6 +21,7 @@
         },
         {
             "ref": "3a",
+            "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (warfarine (coumadine®)) ?",
             "answers":[
                 "objectif d’INR entre 2-3",
@@ -29,6 +30,7 @@
         },
         {
             "ref": "3b",
+            "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
             "answers":[
                 "15 mg par jour",
@@ -37,6 +39,7 @@
         },
         {
             "ref": "3c",
+            "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
             "answers":[
                 "2.5 mg matin et soir",
@@ -45,6 +48,7 @@
         },
         {
             "ref": "3d",
+            "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (aspirine (aspégic®)) ?",
             "answers":[
                 "75-100 mg/jour",
@@ -53,6 +57,7 @@
         },
         {
             "ref": "3e",
+            "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (clopidogrel (plavix®)) ?",
             "answers":[
                 "75 mg/jour",
@@ -61,6 +66,7 @@
         },
         {
             "ref": "4",
+            "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
                 "1 mois",
@@ -71,6 +77,7 @@
         },
         {
             "ref": "5",
+            "multiple": "false",
             "text":"Sur une échelle de 0 à 10, quel est votre degré de certitude quant à l’adéquation de votre prescription par rapport aux recommandations en vigueur ?",
             "answers":[1,2,3,4,5,6,7,8,9,10]
         }

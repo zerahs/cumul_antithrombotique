@@ -34,22 +34,25 @@ class QuestionController extends Controller
      */
     public function questionShowAction(Request $request)
     {
-        // @TODO - get data from file
         // @TODO - get participant from session and db
-        // @TODO - load question number from session info
-        $vignette = $this->get('AppBundle\Model\Vignette');
-        $vignette->load(1);
-        $vignetteData = $vignette->getJson();
-        $questionData = $vignetteData["questions"][3];
-        $participant = $this->getDoctrine()->getRepository('AppBundle:Participant')->find(1);
+        // @TODO - randomisation
+        // @TODO - load vignette and question number from session info
 
-        dump(array_flip($questionData['answers']));
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
+        $participant = $this->getDoctrine()->getRepository('AppBundle:Participant')->find($participantId);
+
+        $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
+        $questionData = $vignetteManager->getQuestionData();
+        $multiple = $vignetteManager->questionIsMultiple();
+
         $form = $this->createFormBuilder()
             ->add('answers', ChoiceType::class, [
                 'label' => $questionData['text'],
                 'choices' => array_flip($questionData['answers']),
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => $multiple,
             ])
             ->add('save', SubmitType::class)
             ->getForm()
@@ -58,17 +61,30 @@ class QuestionController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData()['answers'];
-            $answer = new Answer($participant, $vignetteData['id'], $questionData['ref'], $data);
             
+            // When multiple is false, convert integer to array
+            if(!is_array($data)){
+                $data = [$data];
+            }
+            // Save answer
+            $answer = new Answer(
+                $participant,
+                $vignetteManager->getVignetteId(), 
+                $questionData['ref'], 
+                $data
+            );
             $em = $this->getDoctrine()->getManager();
             $em->persist($answer);
             $em->flush();
 
-            // return $this->redirectToRoute('task_success');
+            $vignetteManager->loadNextQuestion();
+
+            return $this->redirectToRoute('question_show');
         }
 
         return $this->render('question/show.html.twig', [
             'form' => $form->createView(),
+            'questionRef' => $questionData['ref'],
         ]);
     }
 }
