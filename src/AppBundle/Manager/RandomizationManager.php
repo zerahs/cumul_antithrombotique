@@ -29,23 +29,27 @@ class RandomizationManager
         return $this->repo->find(1);
     }
 
-
-    private function getThenIncrementIndex($indexName)
+    private function getThenIncrementIndex($indexName, $increment=1)
     {
         $indexes = $this->getIndexes();
         $getter = 'get'.ucfirst($indexName);
         $index = $indexes->$getter();
         $setter = 'set'.ucfirst($indexName);
-        $indexes->$setter($index+1);
+        $indexes->$setter($index + $increment);
         $this->em->persist($indexes);
         $this->em->flush();
         return $index;
     }
 
-    private function randomize($indexName, $index)
+    private function getCsv($indexName)
     {
         $path = $this->dir.'/'.$indexName.'.csv';
-        $data = $this->serializer->decode(file_get_contents($path), 'csv');
+        return $this->serializer->decode(file_get_contents($path), 'csv');
+    }
+
+    private function randomizeGroup($indexName, $index)
+    {
+        $data = $this->getCsv($indexName);
         $randomizationNumber = $data[$index]['NUMERO'];
         $randomizationGroup = $data[$index]['BRAS'];
         return [
@@ -54,15 +58,32 @@ class RandomizationManager
         ];
     }
 
+    private function randomizeVignettes($indexName, $index)
+    {
+        $data = $this->getCsv($indexName);
+        $numbers = [
+            $data[$index]['NUMERO_VIGNETTE'],
+            $data[$index+1]['NUMERO_VIGNETTE'],
+            $data[$index+2]['NUMERO_VIGNETTE'],
+        ];
+        return $numbers;
+    }
+
     public function randomizeCardio()
     {
         $index = $this->getThenIncrementIndex('cardio');
-        return $this->randomize('cardio', $index);
+        return $this->randomizeGroup('cardio', $index);
     }
 
     public function randomizeMg()
     {
         $index = $this->getThenIncrementIndex('mg');
-        return $this->randomize('mg', $index);
+        return $this->randomizeGroup('mg', $index);
+    }
+
+    public function randomizeTool()
+    {
+        $index = $this->getThenIncrementIndex('tool', 3);
+        return $this->randomizeVignettes($index, 'tool');
     }
 }

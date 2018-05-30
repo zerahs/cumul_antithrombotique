@@ -18,23 +18,11 @@ use Symfony\Component\HttpFoundation\Request;
 class QuestionController extends Controller
 {
 
-    private $questionData = [
-        'id'   => 1,
-        'text' => 'Quelle est la couleur du cheval blanc d\'Henry IV ?',
-        'answers' => [
-            'blanc' => 'blanc',
-            'noir' => 'noir',
-            'rouge' => 'rouge',
-            'jaune' => 'jaune',
-        ],
-    ];
-
     /**
      * @Route("/show", name="question_show")
      */
     public function questionShowAction(Request $request)
     {
-        // @TODO - get participant from session and db
         // @TODO - randomisation
         // @TODO - load vignette and question number from session info
 
