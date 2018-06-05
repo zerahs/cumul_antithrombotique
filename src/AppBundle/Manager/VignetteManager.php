@@ -39,7 +39,7 @@ class VignetteManager
     {
         $this->vignetteId = $this->session->get('vignette_id');
         // TODO remove this when all vignette jsons are loaded
-        $this->vignetteId = 25;
+        $this->vignetteId = 29;
         $this->vignette->load($this->vignetteId);
     }
 

@@ -1,6 +1,6 @@
 {
-    "id":26,
-    "description": "<p>Vous voyez en consultation Mr Z, âgé de 75 ans (poids 70 kg, taille 1m65), marié, 1 enfant, tabagisme sevré à 30 PA. </p><p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une hypertension artérielle traitée depuis 10 ans (clairance de la créatinine selon Cockcroft : 60 ml/min)  </li><li>une hypercholestérolémie traitée </li><li>un rétrécissement aortique calcifié (RAC) avec plusieurs épisodes de décompensation cardiaque traité par remplacement valvulaire chirurgical avec une prothèse valvulaire mécanique il y a 20 ans. Sa dernière fraction d’éjection était à 50%. </li></ul></p><p>Il a été hospitalisé il y a un an pour des douleurs du membre inférieur droit. L’ensemble du bilan a révélé une artériopathie oblitérante des membres inférieurs (AOMI) sévère. Il a alors bénéficié d’une revascularisation percutanée. </p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>amlodipine (amlor®)</li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>warfarine (coumadine®) avec un INR cible à 2.5</li><li>aspirine (aspégic®)</li></ul></p><p><span class='underline bold'>Vous le voyez en consultation de suivi à 12 mois de la revascularisation percutanée.</span><br>L’examen clinique est normal ainsi que le bilan biologique.</p>",
+    "id":28,
+    "description": "<p>Vous voyez en consultation Mme CD, âgée de 50 ans (poids 60 kg, taille 1m60), célibataire sans enfant, tabagisme actif à 10 PA. </p><p><span class='underline'>Elle a comme principaux antécédents : </span><ul><li>une hypertension artérielle traitée depuis 5 ans (clairance de la créatinine selon Cockcroft : 70 ml/min)</li><li>une hypercholestérolémie traitée </li><li>un rétrécissement aortique sur bicuspidie aortique connu depuis plus de 10 ans avec plusieurs épisodes de décompensation cardiaque globale. </li></ul></p><p>Elle a été hospitalisée il y a six mois pour une aphasie et une hémiparésie droite régressive en moins de 24 heures dont le bilan s’est avéré négatif. Par ailleurs, le bilan de son RAC concluait à la nécessité d’un remplacement valvulaire, raison pour laquelle Mme V a été opérée avec mise en place d’une valve mécanique. </p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>amlodipine (amlor®)</li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>clopidogrel (plavix®)</li><li>warfarine (coumadine®) objectif INR : 2.5</li></ul></p><p><span class='bold underline'>Vous la voyez en consultation de suivi à 6 mois de la pose de la valve mécanique. L’examen clinique et l’échographie cardiaque sont sans particularité, la FEVG est à 50%. </span></p>",
     "questions":
     [
         {
@@ -50,7 +50,8 @@
                 "2.5 mg matin et soir",
                 "5 mg matin et soir"
             ],
-            "valid":[]
+            "valid":[
+            ]
         },
         {
             "ref": "3d",
@@ -77,9 +78,9 @@
             "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
-                "6 mois",
-                "9 mois",
+                "3 à 6 mois",
                 "12 mois",
+                "24 mois",
                 "Au long cours"
             ],
             "valid":[3]

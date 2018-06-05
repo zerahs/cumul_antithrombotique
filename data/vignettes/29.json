@@ -1,6 +1,6 @@
 {
-    "id":26,
-    "description": "<p>Vous voyez en consultation Mr Z, âgé de 75 ans (poids 70 kg, taille 1m65), marié, 1 enfant, tabagisme sevré à 30 PA. </p><p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une hypertension artérielle traitée depuis 10 ans (clairance de la créatinine selon Cockcroft : 60 ml/min)  </li><li>une hypercholestérolémie traitée </li><li>un rétrécissement aortique calcifié (RAC) avec plusieurs épisodes de décompensation cardiaque traité par remplacement valvulaire chirurgical avec une prothèse valvulaire mécanique il y a 20 ans. Sa dernière fraction d’éjection était à 50%. </li></ul></p><p>Il a été hospitalisé il y a un an pour des douleurs du membre inférieur droit. L’ensemble du bilan a révélé une artériopathie oblitérante des membres inférieurs (AOMI) sévère. Il a alors bénéficié d’une revascularisation percutanée. </p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>amlodipine (amlor®)</li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>warfarine (coumadine®) avec un INR cible à 2.5</li><li>aspirine (aspégic®)</li></ul></p><p><span class='underline bold'>Vous le voyez en consultation de suivi à 12 mois de la revascularisation percutanée.</span><br>L’examen clinique est normal ainsi que le bilan biologique.</p>",
+    "id":29,
+    "description": "<p>Vous voyez pour la première fois en consultation Mme EF, âgé de 36 ans (poids 60 kg, taille 1m60), célibataire sans enfant, tabagisme actif à 10 PA. </p><p>Elle n’a pas d’antécédent particulier (clairance de la créatinine selon Cockcroft : 85 ml/min) et prend comme seul traitement une pilule oestro-progestative depuis 3 ans. Elle a été opérée la semaine dernière d’une fracture du plateau tibial dans les suites d’un accident de ski. Elle n’a pas le droit à l’appui, raison pour laquelle un traitement anticoagulant préventif par enoxaparine (lovenox®) a été introduit. Phobique des injections, elle n’a pas suivi le traitement.  Elle vient vous voir aujourd’hui car elle a extrêmement mal au mollet droit. A l’examen clinique vous retrouvez un mollet droit inflammatoire et douloureux. Le doppler réalisé le jour même confirme la présence d’une thrombose veineuse profonde. Il n’y a pas d’argument pour une embolie pulmonaire. </p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>enoxaparine (lovenox®) 0.4 ml : 1 injection sous cutanée par jour</li><li>paracetamol (doliprane®), si douleurs</li><li>naproxene (apranax®), si douleurs</li><li>metoclopramide (primperan®), si nausées</li></ul></p>",
     "questions":
     [
         {
@@ -14,41 +14,41 @@
             "ref":"2",
             "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation?",
             "answers":[
-                "warfarine (coumadine®)",
                 "rivaroxaban (xarelto®)",
                 "apixaban (eliquis®)",
+                "dabigatran (pradaxa®)",
                 "aspirine (aspégic®)",
                 "clopidogrel (plavix®)"
             ],
-            "valid":[0]
+            "valid":[[0],[1]]
         },
         {
             "ref": "3a",
             "multiple": "false",
-            "text":"A quelle dose allez-vous prescrire cette molécule (warfarine (coumadine®)) ?",
+            "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
             "answers":[
-                "objectif d’INR entre 2-3",
-                "objectif d’INR entre 2.5-3.5"
+                "15 mg par jour",
+                "15 mg x 2/jour"
             ],
-            "valid":[0]
+            "valid":[1]
         },
         {
             "ref": "3b",
             "multiple": "false",
-            "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
+            "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
             "answers":[
-                "15 mg par jour",
-                "20 mg par jour"
+                "5 mg x 2/jour",
+                "10 mg x 2/jour"
             ],
-            "valid":[]
+            "valid":[1]
         },
         {
             "ref": "3c",
             "multiple": "false",
-            "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
+            "text":"A quelle dose allez-vous prescrire cette molécule (dabigatran (pradaxa®)) ?",
             "answers":[
-                "2.5 mg matin et soir",
-                "5 mg matin et soir"
+                "150 mg/jour",
+                "150 mg x 2/jour"
             ],
             "valid":[]
         },
@@ -77,12 +77,12 @@
             "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
+                "3 mois",
                 "6 mois",
-                "9 mois",
                 "12 mois",
                 "Au long cours"
             ],
-            "valid":[3]
+            "valid":[0]
         },
         {
             "ref": "5",
