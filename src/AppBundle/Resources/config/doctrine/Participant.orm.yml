@@ -32,4 +32,6 @@ AppBundle\Entity\Participant:
             unique: true
             options:
                 unsigned: true
+        vignetteNumbers:
+            type: array
     lifecycleCallbacks: {  }

@@ -20,6 +20,11 @@ class Vignette
         $this->json = json_decode($vignette, true);
     }
 
+    public function getDescription()
+    {
+        return $this->json['description'];
+    }
+
     public function getQuestions()
     {
         return $this->json["questions"];

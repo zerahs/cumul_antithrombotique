@@ -37,9 +37,15 @@ class VignetteManager
 
     public function loadVignette()
     {
-        // @TODO get vignette number to load (from session ? cf randomisation later)
+        $this->vignetteId = $this->session->get('vignette_id');
+        // TODO remove this when all vignette jsons are loaded
         $this->vignetteId = 1;
         $this->vignette->load($this->vignetteId);
+    }
+
+    public function getVignette()
+    {
+        return $this->vignette;
     }
 
     public function getQuestionData()

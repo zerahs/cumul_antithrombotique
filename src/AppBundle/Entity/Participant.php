@@ -34,6 +34,7 @@ class Participant
 
     private $randomizationGroup;
     private $randomizationNumber;
+    private $vignetteNumbers;
 
     public function __construct()
     {
@@ -197,5 +198,30 @@ class Participant
     public function getRandomizationNumber()
     {
         return $this->randomizationNumber;
+    }
+
+
+    /**
+     * Set vignetteNumbers
+     *
+     * @param array $vignetteNumbers
+     *
+     * @return Participant
+     */
+    public function setVignetteNumbers($vignetteNumbers)
+    {
+        $this->vignetteNumbers = $vignetteNumbers;
+
+        return $this;
+    }
+
+    /**
+     * Get vignetteNumbers
+     *
+     * @return array
+     */
+    public function getVignetteNumbers()
+    {
+        return $this->vignetteNumbers;
     }
 }

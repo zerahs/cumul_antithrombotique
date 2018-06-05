@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Participant;
 use AppBundle\Form\ParticipantType;
+use AppBundle\Manager\RandomizationManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,7 +35,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Randomization
+            // Randomization group
             $spe = $participant->getSpecialty();
             $manager = $this->get('AppBundle\Manager\RandomizationManager');
             if($spe == 'cardio'){
@@ -50,18 +51,43 @@ class DefaultController extends Controller
             $participant->setRandomizationNumber($randomization['number']);
             $participant->setRandomizationGroup($randomization['group']);
 
+            // Randomize Vignettes
+            if($participant->getRandomizationGroup() == RandomizationManager::GROUP_TOOL){
+                $numbers = $manager->randomizeTool();
+            }
+            elseif($participant->getRandomizationGroup() == RandomizationManager::GROUP_CONTROL){
+                $numbers = $manager->randomizeControl();
+            }
+            else{
+                return $this->redirectToRoute('participant');
+            }
+            $participant->setVignetteNumbers($numbers);
+
             // Clear session and save participant
             $em = $this->getDoctrine()->getManager();
             $em->persist($participant);
             $em->flush();
             $this->get('session')->clear();
             $this->get('session')->set('participant_id', $participant->getId());
-
-            return $this->redirectToRoute('question_show');
+            $this->get('session')->set('vignette_id', $numbers[0]);
+            dump($participant);
+            return $this->redirectToRoute('vignette_description');
         }
 
         return $this->render('default/participant.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/vignette/description", name="vignette_description")
+     */
+    public function vignetteDescriptionAction(Request $request)
+    {
+        $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
+
+        return $this->render('default/vignette_description.html.twig', [
+            'description' => $vignetteManager->getVignette()->getDescription(),
         ]);
     }
 

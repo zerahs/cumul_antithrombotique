@@ -15,6 +15,9 @@ class RandomizationManager
     private $em;
     private $serializer;
 
+    const GROUP_CONTROL = 'A';
+    const GROUP_TOOL = 'B';
+
     public function __construct($randomizationDir, SessionInterface $session, RandomizationIndexesRepository $repo, EntityManagerInterface $em, SerializerInterface $serializer)
     {
         $this->dir = $randomizationDir;
@@ -84,6 +87,12 @@ class RandomizationManager
     public function randomizeTool()
     {
         $index = $this->getThenIncrementIndex('tool', 3);
-        return $this->randomizeVignettes($index, 'tool');
+        return $this->randomizeVignettes('tool', $index);
+    }
+
+    public function randomizeControl()
+    {
+        $index = $this->getThenIncrementIndex('control', 3);
+        return $this->randomizeVignettes('control', $index);
     }
 }
