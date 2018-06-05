@@ -1,6 +1,6 @@
 {
-    "id":2,
-    "description": "<p>Vous voyez en consultation M B, âgé de 76 ans (poids 85 kg, taille 1m75), divorcé, 3 enfants, tabagisme actif à 40 PA.</p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une arythmie cardiaque par fibrillation atriale paroxystique, diagnostiquée il y a un an</li><li>une hypertension artérielle traitée depuis 15 ans (clairance de la créatinine selon Cockcroft : 50 ml/min)</li><li>une hypercholestérolémie</li></ul><span class='underline'>Sa dernière ordonnance retrouve : </span><ul> <li>rivaroxaban (xarelto®)</li> <li>amiodarone (cordarone®)</li>    <li>amlodipine (amlor®)</li>    <li>ramipril (triatec®)</li>    <li>atorvastatine (tahor®)</li></ul><p>Lors de votre dernière consultation, vous n’aviez pas trouvé les pouls pédieux et vous aviez prescrit un doppler artériel des membres inférieurs. Le périmètre de marche est illimité. Ce dernier met en évidence une occlusion bilatérale des artères fémorales superficielles. L’IPS (index de pression systolique) est mesuré à 0.85 des deux côtés.</p>",
+    "id":5,
+    "description": "<p>Vous voyez en consultation M E, âgé de 75 ans (poids 80 kg, taille 1m70), célibataire sans enfant, tabagisme actif à 50 PA. </p><p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une hypertension artérielle traitée depuis 15 ans (clairance de la créatinine selon Cockcroft : 50 ml/min)</li><li>une hypercholestérolémie </li><li>un rétrécissement aortique sur bicuspidie aortique pour lequel il a bénéficié d’un remplacement valvulaire (valve mécanique) il y a 20 ans. Sa dernière fraction d’éjection du ventricule gauche était à 45%. </li><li>une maladie coronarienne stable depuis plus de 10 ans</li></ul></p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>amlodipine (amlor®)</li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>warfarine (coumadine®), INR cible à 2.5</li><li>aspirine (aspégic®)</li></ul></p><p class='bold'>Vous le voyez en consultation de contrôle. </p>",
     "questions":
     [
         {
@@ -16,11 +16,11 @@
             "answers":[
                 "warfarine (coumadine®)",
                 "rivaroxaban (xarelto®)",
+                "apixaban (eliquis®)",
                 "aspirine (aspégic®)",
-                "clopidogrel (plavix®)",
-                "ticagrelor (brilique®)"
+                "clopidogrel (plavix®)"
             ],
-            "valid":[[0],[1]]
+            "valid":[0]
         },
         {
             "ref": "3a",
@@ -40,10 +40,20 @@
                 "15 mg par jour",
                 "20 mg par jour"
             ],
-            "valid":[1]
+            "valid":[]
         },
         {
             "ref": "3c",
+            "multiple": "false",
+            "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
+            "answers":[
+                "2,5 mg x 2/jour",
+                "5 mg x 2/jour"
+            ],
+            "valid":[]
+        },
+        {
+            "ref": "3d",
             "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (aspirine (aspégic®)) ?",
             "answers":[
@@ -53,7 +63,7 @@
             "valid":[]
         },
         {
-            "ref": "3d",
+            "ref": "3e",
             "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (clopidogrel (plavix®)) ?",
             "answers":[
@@ -63,23 +73,13 @@
             "valid":[]
         },
         {
-            "ref": "3e",
-            "multiple": "false",
-            "text":"A quelle dose allez-vous prescrire cette molécule (ticagrelor (brilique®)) ?",
-            "answers":[
-                "90 mg/jour",
-                "90 mg x 2/jour"
-            ],
-            "valid":[]
-        },
-        {
             "ref": "4",
             "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
-                "1 à 6 mois",
-                "7 à 12 mois",
-                "13 à 24 mois",
+                "6 mois",
+                "12 mois",
+                "24 mois",
                 "Au long cours"
             ],
             "valid":[3]
@@ -91,6 +91,5 @@
             "answers":[0,1,2,3,4,5,6,7,8,9,10],
             "valid":[]
         }
-
     ]
 }

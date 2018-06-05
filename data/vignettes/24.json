@@ -1,6 +1,6 @@
 {
-    "id":2,
-    "description": "<p>Vous voyez en consultation M B, âgé de 76 ans (poids 85 kg, taille 1m75), divorcé, 3 enfants, tabagisme actif à 40 PA.</p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une arythmie cardiaque par fibrillation atriale paroxystique, diagnostiquée il y a un an</li><li>une hypertension artérielle traitée depuis 15 ans (clairance de la créatinine selon Cockcroft : 50 ml/min)</li><li>une hypercholestérolémie</li></ul><span class='underline'>Sa dernière ordonnance retrouve : </span><ul> <li>rivaroxaban (xarelto®)</li> <li>amiodarone (cordarone®)</li>    <li>amlodipine (amlor®)</li>    <li>ramipril (triatec®)</li>    <li>atorvastatine (tahor®)</li></ul><p>Lors de votre dernière consultation, vous n’aviez pas trouvé les pouls pédieux et vous aviez prescrit un doppler artériel des membres inférieurs. Le périmètre de marche est illimité. Ce dernier met en évidence une occlusion bilatérale des artères fémorales superficielles. L’IPS (index de pression systolique) est mesuré à 0.85 des deux côtés.</p>",
+    "id":24,
+    "description": "<p>Vous voyez en consultation Mr X, âgé de 77 ans (poids 95 kg, taille 1m75), marié, 2 enfants, tabagisme actif à 40 PA. </p><p><span class='underline'>Il a comme principaux antécédents : </span><ul><li>une hypertension artérielle traitée depuis 5 ans (clairance de la créatinine selon Cockcroft : 65 ml/min)</li><li>une hypercholestérolémie traitée </li><li>une coronaropathie (syndrome coronarien aigu ST- sur occlusion de la circonflexe distale traitée par angioplastie avec un stent actif il y a 8 mois) </li></ul></p><p>Il a été hospitalisé il y a 2 mois pour une sténose carotidienne serrée pour laquelle il a bénéficié de la pose d’un stent.</p><p><span class='underline'>Sa dernière ordonnance retrouve : </span><ul><li>amlodipine (amlor®)</li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>aspirine (aspégic®)</li><li>clopidogrel (plavix®)</li><li>bisoprolol (cardensiel®)</li></ul></p><p><span class='underline bold'>Vous le voyez en consultation de suivi à 2 mois de la pose du stent carotidien et à 8 mois de la pose du stent coronarien. Mr P se porte bien.</span> </p>",
     "questions":
     [
         {
@@ -8,19 +8,19 @@
             "multiple": "false",
             "text":"Vous refaites une ordonnance globale lors de cette consultation. Combien de traitements antithrombotiques prescrivez-vous ?",
             "answers":[0,1,2,3],
-            "valid":[1]
+            "valid":[2]
         },
         {
             "ref":"2",
             "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation?",
             "answers":[
                 "warfarine (coumadine®)",
-                "rivaroxaban (xarelto®)",
+                "aspirine / dipyridamole (aggrenox®)",
                 "aspirine (aspégic®)",
                 "clopidogrel (plavix®)",
                 "ticagrelor (brilique®)"
             ],
-            "valid":[[0],[1]]
+            "valid":[2,3]
         },
         {
             "ref": "3a",
@@ -30,17 +30,17 @@
                 "objectif d’INR entre 2-3",
                 "objectif d’INR entre 2.5-3.5"
             ],
-            "valid":[0]
+            "valid":[]
         },
         {
             "ref": "3b",
             "multiple": "false",
-            "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
+            "text":"A quelle dose allez-vous prescrire cette molécule (aspirine / dipyridamole (aggrenox®)) ?",
             "answers":[
-                "15 mg par jour",
-                "20 mg par jour"
+                "25/200 mg : 1 cp par jour",
+                "25/200 mg : 1 cp x 2/jour"
             ],
-            "valid":[1]
+            "valid":[]
         },
         {
             "ref": "3c",
@@ -50,7 +50,7 @@
                 "75-100 mg/jour",
                 "300 mg/jour"
             ],
-            "valid":[]
+            "valid":[0]
         },
         {
             "ref": "3d",
@@ -60,7 +60,7 @@
                 "75 mg/jour",
                 "300 mg/jour"
             ],
-            "valid":[]
+            "valid":[0]
         },
         {
             "ref": "3e",
@@ -77,12 +77,12 @@
             "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
-                "1 à 6 mois",
-                "7 à 12 mois",
-                "13 à 24 mois",
-                "Au long cours"
+                "1 mois",
+                "4 mois",
+                "8 mois",
+                "12 mois"
             ],
-            "valid":[3]
+            "valid":[1]
         },
         {
             "ref": "5",
@@ -91,6 +91,5 @@
             "answers":[0,1,2,3,4,5,6,7,8,9,10],
             "valid":[]
         }
-
     ]
 }

@@ -1,6 +1,6 @@
 {
-    "id":1,
-    "description": "<p>Vous voyez en consultation M A, âgé de 86 ans (poids 81 kg, taille 1m72). Il est veuf, fumeur (10 cigarettes par jour, 50 PA), autonome au domicile.</p><p>Il n’a pas d’antécédent particulier et ne prend aucun traitement. Son dernier bilan biologique ne trouvait pas d’anomalie (créatininémie 77 micromol/L, clairance de la créatinine (Cockcroft) : 70 ml.min-1 ). </p><p>Il vient vous voir car il présente depuis plus d’une semaine des palpitations à l’effort et au repos. Vous réalisez un électrocardiogramme dans votre cabinet et vous diagnostiquez une arythmie cardiaque par fibrillation atriale (ACFA).  Le bilan biologique est sans particularité (en particulier le ionogramme sanguin et la TSH). L’échographie cardiaque retrouve une oreillette gauche dilatée sans anomalie valvulaire. </p>",
+    "id":7,
+    "description": "<p>Vous voyez en consultation Mme G, âgée de 49 ans (poids 65 kg, taille 1m65), mariée, 2 enfants, tabagisme actif à 20 PA.</p><p><span class='underline'>Elle a comme principaux antécédents : </span><li>une hypertension artérielle traitée depuis 5 ans (clairance de la créatinine selon Cockcroft : 70 ml/min)</li><li>une hypercholestérolémie traitée</li></p><p>Elle a été hospitalisée il y a neuf mois pour une aphasie et une hémiparésie droite révélant un accident vasculaire cérébral ischémique (AVC) sylvien gauche. Le bilan a conclu à un AVC ischémique non cardio-embolique. L’échographie cardiaque était sans particularité, en particulier par de foramen ovale perméable ou d’anévrysme du septum interauriculaire. Après trois mois  de prise en charge en rééducation dans une structure de soins de suite et réadaptation, Mme G est rentrée avec mise en place d’aide au domicile. Une semaine après, devant l’apparition d’une dyspnée aiguë, Mme G a été adressée aux urgences où il a été retrouvé une embolie pulmonaire.  </p><p><span class='underline'>Sa dernière ordonnance retrouve : <span class='underline'><ul><li>amlodipine (amlor®) </li><li>ramipril (triatec®)</li><li>atorvastatine (tahor®)</li><li>aspirine (aspégic®)</li><li>escitalopram (seroplex®)</li><li>paracétamol (doliprane®)</li><li>alprazolam (xanax®)</li><li>warfarine (coumadine®)</li></ul></p><p class='underline bold'>Vous la voyez en consultation de suivi à 6 mois du diagnostic d’embolie pulmonaire. Mme G se porte bien. </p>",
     "questions":
     [
         {
@@ -20,7 +20,7 @@
                 "aspirine (aspégic®)",
                 "clopidogrel (plavix®)"
             ],
-            "valid":[[0],[1],[2]]
+            "valid":[[3],[4]]
         },
         {
             "ref": "3a",
@@ -30,27 +30,27 @@
                 "objectif d’INR entre 2-3",
                 "objectif d’INR entre 2.5-3.5"
             ],
-            "valid":[0]
+            "valid":[]
         },
         {
             "ref": "3b",
             "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (rivaroxaban (xarelto®)) ?",
             "answers":[
-                "15 mg par jour",
-                "20 mg par jour"
+                "20 mg/jour ",
+                "15 mg x 2/jour"
             ],
-            "valid":[1]
+            "valid":[]
         },
         {
             "ref": "3c",
             "multiple": "false",
             "text":"A quelle dose allez-vous prescrire cette molécule (apixaban (eliquis®)) ?",
             "answers":[
-                "2.5 mg matin et soir",
-                "5 mg matin et soir"
+                "5 mg x 2/jour",
+                "10 mg x 2/jour"
             ],
-            "valid":[1]
+            "valid":[]
         },
         {
             "ref": "3d",
@@ -60,7 +60,7 @@
                 "75-100 mg/jour",
                 "300 mg/jour"
             ],
-            "valid":[]
+            "valid":[0]
         },
         {
             "ref": "3e",
@@ -70,15 +70,15 @@
                 "75 mg/jour",
                 "300 mg/jour"
             ],
-            "valid":[]
+            "valid":[0]
         },
         {
             "ref": "4",
             "multiple": "false",
             "text":"Combien de temps encore le traitement ou l’association de traitements antithrombotiques prescrits à la question précédente devront être poursuivis ?",
             "answers":[
-                "1 mois",
-                "6 mois",
+                "15 jours",
+                "3 mois",
                 "12 mois",
                 "Au long cours"
             ],

@@ -39,7 +39,7 @@ class VignetteManager
     {
         $this->vignetteId = $this->session->get('vignette_id');
         // TODO remove this when all vignette jsons are loaded
-        $this->vignetteId = 1;
+        $this->vignetteId = 25;
         $this->vignette->load($this->vignetteId);
     }
 
@@ -81,7 +81,22 @@ class VignetteManager
 
     private function questionShouldAppear($questionData)
     {
-        // Only question 3 is conditional
+        if( in_array($questionData['ref'], ['1','5']))
+        {
+            return true;
+        }
+
+        // If answer to question 1 is 0, go to question 5
+        $answer1 = $this->answerRepository->findOneBy([
+            'vignetteId' => $this->vignetteId,
+            'questionRef' => '1',
+            'participant' => $this->participantId,
+        ]);
+        if( $answer1->getData() == ['0'] ){
+            return false;
+        }
+
+        // Question 3 is conditional to question 2
         if(strpos($questionData['ref'], '3') === false) {
             return true;
         }
