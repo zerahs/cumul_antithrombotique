@@ -64,6 +64,15 @@ class VignetteManager
         return isset($this->getQuestionData()["multiple"]) ? false : true;
     }
 
+    public function answerIsValid($answer)
+    {
+        $valid = $this->getQuestionData()['valid'];
+        if( !empty($valid) && is_array($valid[0]) ){
+            return in_array($answer, $valid);
+        }
+        return $valid == $answer;
+    }
+
     public function loadNextQuestion()
     {
         $this->questionId += 1;
@@ -93,7 +102,8 @@ class VignetteManager
             return true;
         }
 
-        return false;
-        
+        return false;   
     }
+
+
 }

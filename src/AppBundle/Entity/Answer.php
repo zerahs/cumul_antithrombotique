@@ -27,13 +27,15 @@ class Answer
      */
     private $participant;
 
+    private $valid;
 
-    public function __construct(Participant $participant, $vignetteId, $questionRef, array $data)
+    public function __construct(Participant $participant, $vignetteId, $questionRef, array $data, $valid)
     {
         $this->participant = $participant;
         $this->vignetteId = $vignetteId;
         $this->questionRef = $questionRef;
         $this->data = $data;
+        $this->valid = $valid;
     }
 
     /**
@@ -105,5 +107,54 @@ class Answer
     public function getParticipant()
     {
         return $this->participant;
+    }
+
+
+    /**
+     * Set vignetteId
+     *
+     * @param integer $vignetteId
+     *
+     * @return Answer
+     */
+    public function setVignetteId($vignetteId)
+    {
+        $this->vignetteId = $vignetteId;
+
+        return $this;
+    }
+
+    /**
+     * Get vignetteId
+     *
+     * @return integer
+     */
+    public function getVignetteId()
+    {
+        return $this->vignetteId;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param boolean $valid
+     *
+     * @return Answer
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return boolean
+     */
+    public function getValid()
+    {
+        return $this->valid;
     }
 }

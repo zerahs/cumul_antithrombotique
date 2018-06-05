@@ -54,12 +54,14 @@ class QuestionController extends Controller
             if(!is_array($data)){
                 $data = [$data];
             }
+            $valid = $vignetteManager->answerIsValid($data);
             // Save answer
             $answer = new Answer(
                 $participant,
                 $vignetteManager->getVignetteId(), 
                 $questionData['ref'], 
-                $data
+                $data,
+                $valid
             );
             $em = $this->getDoctrine()->getManager();
             $em->persist($answer);

@@ -20,6 +20,8 @@ AppBundle\Entity\Answer:
             length: 7
         data:
             type: array
+        valid:
+            type: boolean
     manyToOne:
         participant:
             targetEntity: Participant

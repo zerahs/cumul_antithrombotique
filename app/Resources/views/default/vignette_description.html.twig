@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container">
         <h1>Présentation du cas</h1>
-        {{description}}
+        {{ description|raw }}
         <div class="text-center">
         	<a class="btn btn-primary" href="{{ path('question_show') }}">Commencer</a>
     	</div>
