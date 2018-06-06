@@ -7,30 +7,14 @@ namespace AppBundle\Entity;
  */
 class Participant
 {
-    /**
-     * @var int
-     */
     private $id;
-
-    /**
-     * @var int
-     */
     private $age;
-
-    /**
-     * @var string
-     */
     private $gender;
-
-    /**
-     * @var string
-     */
     private $specialty;
-
-    /**
-     * @var string
-     */
-    private $place;
+    private $thesisDate;
+    private $cumulPercent;
+    private $atEase;
+    private $whereToReco;
 
     private $randomizationGroup;
     private $randomizationNumber;
@@ -40,8 +24,7 @@ class Participant
     {
         $this->gender = 'F';
         $this->age = '40';
-        $this->specialty = 'cardio';
-        $this->place = 'Nantes';
+        $this->specialty = 'cardiom';
     }
 
     /**
@@ -127,31 +110,6 @@ class Participant
     }
 
     /**
-     * Set place
-     *
-     * @param string $place
-     *
-     * @return Participant
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-
-        return $this;
-    }
-
-    /**
-     * Get place
-     *
-     * @return string
-     */
-    public function getPlace()
-    {
-        return $this->place;
-    }
-
-
-    /**
      * Set randomizationGroup
      *
      * @param string $randomizationGroup
@@ -223,5 +181,102 @@ class Participant
     public function getVignetteNumbers()
     {
         return $this->vignetteNumbers;
+    }
+
+
+    /**
+     * Set thesisDate
+     *
+     * @param string $thesisDate
+     *
+     * @return Participant
+     */
+    public function setThesisDate($thesisDate)
+    {
+        $this->thesisDate = $thesisDate;
+
+        return $this;
+    }
+
+    /**
+     * Get thesisDate
+     *
+     * @return string
+     */
+    public function getThesisDate()
+    {
+        return $this->thesisDate;
+    }
+
+    /**
+     * Set cumulPercent
+     *
+     * @param string $cumulPercent
+     *
+     * @return Participant
+     */
+    public function setCumulPercent($cumulPercent)
+    {
+        $this->cumulPercent = $cumulPercent;
+
+        return $this;
+    }
+
+    /**
+     * Get cumulPercent
+     *
+     * @return string
+     */
+    public function getCumulPercent()
+    {
+        return $this->cumulPercent;
+    }
+
+    /**
+     * Set atEase
+     *
+     * @param string $atEase
+     *
+     * @return Participant
+     */
+    public function setAtEase($atEase)
+    {
+        $this->atEase = $atEase;
+
+        return $this;
+    }
+
+    /**
+     * Get atEase
+     *
+     * @return string
+     */
+    public function getAtEase()
+    {
+        return $this->atEase;
+    }
+
+    /**
+     * Set whereToReco
+     *
+     * @param string $whereToReco
+     *
+     * @return Participant
+     */
+    public function setWhereToReco($whereToReco)
+    {
+        $this->whereToReco = $whereToReco;
+
+        return $this;
+    }
+
+    /**
+     * Get whereToReco
+     *
+     * @return string
+     */
+    public function getWhereToReco()
+    {
+        return $this->whereToReco;
     }
 }

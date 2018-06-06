@@ -21,9 +21,18 @@ AppBundle\Entity\Participant:
         specialty:
             type: string
             length: 255
-        place:
+        thesisDate:
             type: string
-            length: 255
+            length: 63
+        cumulPercent:
+            type: string
+            length: 63
+        atEase:
+            type: string
+            length: 63
+        whereToReco:
+            type: string
+            length: 63
         randomizationGroup:
             type: string
             length: 7
