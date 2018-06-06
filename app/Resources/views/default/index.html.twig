@@ -2,10 +2,10 @@
 
 {% block body %}
     <div class="container">
-        <h1>Welcome to cumul antithrombotique website</h1>
         <div class="col-xs-12">
+            <h1>Etude Combi-AT</h1>
             <p>
-        	   Bonjour et bienvenue sur le portail de l’étude TACO, étude originale visant à valider un nouvel outil d’aide à la prescription des antithrombotiques oraux (anticoagulant et / ou antiagrégant plaquettaire) en médecine de ville chez l’adulte.
+        	   Bonjour et bienvenue sur le portail de l’étude Combi-AT, étude originale visant à valider un nouvel outil d’aide à la prescription des antithrombotiques oraux (anticoagulant et / ou antiagrégant plaquettaire) en médecine de ville chez l’adulte.
             </p>
             <p>
                 L’étude consiste à répondre à 3 cas clinique décrivant des situations courantes de prescription d’antithrombotiques oraux en ville, sous forme de QCM. <b>Le temps moyen pour répondre à ces 3 cas cliniques est de 10 minutes.</b>
@@ -13,13 +13,19 @@
             <p>
                 Pour ce faire, soit vous aurez à votre disposition un outil d’aide à la prescription (avec son guide d’utilisation qui vous permettra de comprendre très rapidement comment l’utiliser) pour répondre aux cas cliniques (vous ferez donc partie du groupe outil) ; soit vous répondrez aux cas cliniques sans l’outil, au plus proche de ce que vous auriez fait en consultation dans la situation décrite (vous ferez partie du groupe contrôle).
             </p>
-            <p>
+            <p class="underline bold text-center">
                 Au terme de l’étude, tous les participants auront accès à l’outil qu’ils pourront conserver.
+            </p>
+            <p>
+                Néanmoins, nous vous demandons de ne pas communiquer l’outil pour ne pas fausser les résultats et insistons sur la nécessité de bien compléter les 3 vignettes. <span class="bold">Les données seront strictement anonymes.</span>
+            </p>
+            <p class="bold text-center">
+                Vous pouvez arrêter et reprendre cette étude quand vous le souhaitez mais sur le même ordinateur uniquement.
             </p>
         </div>
 
-        <div class="col-xs-12">
-        	<a href="{{ path('participant') }}">
+        <div class="col-xs-12 text-center">
+        	<a href="{{ path('participant') }}" class="btn btn-primary">
         		Participer à l'étude
         	</a>
         </div>
