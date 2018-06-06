@@ -1,8 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div class="container">
-        <h1>Questions avant randomisation</h1>
-        {{ form(form) }}
+{# 
+{% form_theme form _self %}
+{% use 'bootstrap_3_layout.html.twig' with form_row as base_form_row %}
+
+{% block form_row -%}
+    <div class="col-md-6">
+        {{ block('base_form_row') }}
     </div>
+{%- endblock form_row %} #}
+
+
+{% block body %}
+    <h1>Questions générales</h1>
+    {{form_errors(form)}}
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_row(form.age, {'label':'Quel âge avez-vous ?'} ) }}
+            </div>
+            <div class="col-md-12">
+                {{ form_row(form.gender, {'label':'Genre'} ) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_row(form.specialty, {'label':'Quelle est votre spécialité médicale ?'} ) }}
+            </div>
+            <div class="col-md-12">
+                {{ form_row(form.thesisDate, {'label':'A quelle date avez-vous validé votre thèse de médecine ?'} ) }}
+            </div>
+        </div>
+        {{ form_row(form.cumulPercent, {'label':'Quel est le pourcentage approximatif de patients avec un cumul d’antithrombotiques (antiagrégants et/ou anticoagulants) dans votre patientèle ?'} ) }}
+        {{ form_row(form.atEase, {'label':'Vous sentez-vous à l’aise avec la prescription d’un cumul d’antithrombotiques (antiagrégants et/ou anticoagulants) ?'} ) }}
+        {{ form_row(form.whereToReco, {'label':'Savez-vous où trouver les recommandations concernant les cumuls d’antithrombotiques (antiagrégants et/ou anticoagulants) ?'} ) }}
+
+        {{ form_widget(form.save, {'label':'Continuer', 'attr':{'class':'btn btn-primary'}}) }}
+    {{ form_end(form) }}
 {% endblock %}

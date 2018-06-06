@@ -22,9 +22,6 @@ class Participant
 
     public function __construct()
     {
-        $this->gender = 'F';
-        $this->age = '40';
-        $this->specialty = 'cardiom';
     }
 
     /**

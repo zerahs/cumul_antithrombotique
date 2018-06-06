@@ -4,6 +4,7 @@ namespace AppBundle\Manager;
 
 use AppBundle\Repository\RandomizationIndexesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Asset\Exception\LogicException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -84,15 +85,18 @@ class RandomizationManager
         return $this->randomizeGroup('mg', $index);
     }
 
-    public function randomizeTool()
+    public function randomizeVignettesByGroup($group)
     {
-        $index = $this->getThenIncrementIndex('tool', 3);
-        return $this->randomizeVignettes('tool', $index);
-    }
-
-    public function randomizeControl()
-    {
-        $index = $this->getThenIncrementIndex('control', 3);
-        return $this->randomizeVignettes('control', $index);
+        if($group == self::GROUP_CONTROL){
+            $indexName = 'control';
+        }
+        elseif($group == self::GROUP_TOOL){
+            $indexName = 'tool';
+        }
+        else{
+            throw new LogicException('wrong group');
+        }
+        $index = $this->getThenIncrementIndex($indexName, 3);
+        return $this->randomizeVignettes($indexName, $index);
     }
 }

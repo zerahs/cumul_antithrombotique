@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * @Route("/question")
+ * @Route("/vignette")
  */
-class QuestionController extends Controller
+class VignetteController extends Controller
 {
 
     /**
-     * @Route("/show", name="question_show")
+     * @Route("/question", name="vignette_question")
      */
-    public function questionShowAction(Request $request)
+    public function questionAction(Request $request)
     {
         // @TODO - randomisation
         // @TODO - load vignette and question number from session info
@@ -70,13 +70,26 @@ class QuestionController extends Controller
 
             $vignetteManager->loadNextQuestion();
 
-            return $this->redirectToRoute('question_show');
+            return $this->redirectToRoute('vignette_question');
         }
 
-        return $this->render('question/show.html.twig', [
+        return $this->render('vignette/question.html.twig', [
             'form' => $form->createView(),
             'questionRef' => $questionData['ref'],
             'description' => $description,
+        ]);
+    }
+
+
+    /**
+     * @Route("/description", name="vignette_description")
+     */
+    public function descriptionAction(Request $request)
+    {
+        $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
+
+        return $this->render('vignette/description.html.twig', [
+            'description' => $vignetteManager->getVignette()->getDescription(),
         ]);
     }
 }

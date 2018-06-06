@@ -38,7 +38,7 @@ class DefaultController extends Controller
             // Randomization group
             $spe = $participant->getSpecialty();
             $manager = $this->get('AppBundle\Manager\RandomizationManager');
-            if($spe == 'cardio'){
+            if($spe == 'cardioa' || $spe == 'cardiom'){
                 $randomization = $manager->randomizeCardio();
             }
             elseif($spe == 'mg'){
@@ -52,15 +52,7 @@ class DefaultController extends Controller
             $participant->setRandomizationGroup($randomization['group']);
 
             // Randomize Vignettes
-            if($participant->getRandomizationGroup() == RandomizationManager::GROUP_TOOL){
-                $numbers = $manager->randomizeTool();
-            }
-            elseif($participant->getRandomizationGroup() == RandomizationManager::GROUP_CONTROL){
-                $numbers = $manager->randomizeControl();
-            }
-            else{
-                return $this->redirectToRoute('participant');
-            }
+            $numbers = $manager->randomizeVignettesByGroup($participant->getRandomizationGroup());
             $participant->setVignetteNumbers($numbers);
 
             // Clear session and save participant
@@ -70,8 +62,17 @@ class DefaultController extends Controller
             $this->get('session')->clear();
             $this->get('session')->set('participant_id', $participant->getId());
             $this->get('session')->set('vignette_id', $numbers[0]);
-            dump($participant);
-            return $this->redirectToRoute('vignette_description');
+            
+            // Redirect to randomization group screen
+            if($participant->getRandomizationGroup() == RandomizationManager::GROUP_CONTROL){
+                return $this->redirectToRoute('group_control');
+            }
+            elseif($participant->getRandomizationGroup() == RandomizationManager::GROUP_TOOL){
+                return $this->redirectToRoute('group_tool');
+            }
+
+            // @TODO error ? should not happen
+            // return $this->redirectToRoute('participant');
         }
 
         return $this->render('default/participant.html.twig', [
@@ -80,15 +81,19 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/vignette/description", name="vignette_description")
+     * @Route("/groupe-controle", name="group_control")
      */
-    public function vignetteDescriptionAction(Request $request)
+    public function groupControlAction()
     {
-        $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
+        return $this->render('default/group_control.html.twig');
+    }
 
-        return $this->render('default/vignette_description.html.twig', [
-            'description' => $vignetteManager->getVignette()->getDescription(),
-        ]);
+    /**
+     * @Route("/groupe-outil", name="group_tool")
+     */
+    public function groupToolAction()
+    {
+        return $this->render('default/group_tool.html.twig');
     }
 
     /**
