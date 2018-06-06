@@ -68,8 +68,11 @@ class VignetteController extends Controller
             $em->persist($answer);
             $em->flush();
 
-            $vignetteManager->loadNextQuestion();
-
+            // Load next question or next vignette
+            $nextVignette = $vignetteManager->loadNextQuestion();
+            if($nextVignette === true){
+                return $this->redirectToRoute('vignette_description');
+            }
             return $this->redirectToRoute('vignette_question');
         }
 

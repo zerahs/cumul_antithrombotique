@@ -4,22 +4,30 @@ namespace AppBundle\Manager;
 
 use AppBundle\Model\Vignette;
 use AppBundle\Repository\AnswerRepository;
+use AppBundle\Repository\ParticipantRepository;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class VignetteManager
 {
+
+    const MAX_QUESTION_ID = 8;
+    const MAX_VIGNETTES_NB = 3;
+
     private $vignette;
     private $questionId;
     private $vignetteId;
+    private $vignetteKey;
     private $participantId;
     private $session;
     private $answerRepository;
+    private $participantRepository;
 
-    public function __construct(Vignette $vignette, SessionInterface $session, AnswerRepository $answerRepository)
+    public function __construct(Vignette $vignette, SessionInterface $session, AnswerRepository $answerRepository, ParticipantRepository $participantRepository)
     {
         $this->vignette = $vignette;
         $this->session = $session;
         $this->answerRepository = $answerRepository;
+        $this->participantRepository = $participantRepository;
         $this->init();
     }
 
@@ -38,6 +46,7 @@ class VignetteManager
     public function loadVignette()
     {
         $this->vignetteId = $this->session->get('vignette_id');
+        $this->vignetteKey = $this->session->get('vignette_key');
         $this->vignette->load($this->vignetteId);
     }
 
@@ -73,8 +82,32 @@ class VignetteManager
 
     public function loadNextQuestion()
     {
+        // Last question
+        if($this->questionId >= self::MAX_QUESTION_ID){
+            // @TODO THE END
+            if($this->vignetteKey >= self::MAX_VIGNETTES_NB -1){
+                $this->session->clear();
+                dump('the end');
+                exit();
+                return;
+            }
+            // Set next vignette
+            $participant = $this->participantRepository->find($this->participantId);
+            $numbers = $participant->getVignetteNumbers();
+            $this->vignetteKey += 1;
+            $this->session->set('vignette_key', $this->vignetteKey);
+            $this->vignetteId = $numbers[$this->vignetteKey];
+            $this->session->set('vignette_id', $this->vignetteId);
+            // Set to first question
+            $this->questionId = 0;
+            $this->session->set('question_id', $this->questionId);
+            return true;
+        }
+
+        // Or just next question
         $this->questionId += 1;
         $this->session->set('question_id', $this->questionId);
+        return false;
     }
 
     private function questionShouldAppear($questionData)

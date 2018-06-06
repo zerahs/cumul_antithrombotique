@@ -61,6 +61,7 @@ class DefaultController extends Controller
             $em->flush();
             $this->get('session')->clear();
             $this->get('session')->set('participant_id', $participant->getId());
+            $this->get('session')->set('vignette_key', 0);
             $this->get('session')->set('vignette_id', $numbers[0]);
             
             // Redirect to randomization group screen

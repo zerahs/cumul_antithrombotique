@@ -49,6 +49,12 @@ services:
             - AppBundle\Entity\Answer
         public: true
 
+    AppBundle\Repository\ParticipantRepository:
+        factory: 'Doctrine\ORM\EntityManagerInterface:getRepository'
+        arguments:
+            - AppBundle\Entity\Participant
+        public: true
+
     AppBundle\Repository\RandomizationIndexesRepository:
         factory: 'Doctrine\ORM\EntityManagerInterface:getRepository'
         arguments:
