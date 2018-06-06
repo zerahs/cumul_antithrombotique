@@ -33,6 +33,7 @@ class QuestionController extends Controller
 
         $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
         $questionData = $vignetteManager->getQuestionData();
+        $description = $vignetteManager->getVignette()->getDescription();
         $multiple = $vignetteManager->questionIsMultiple();
 
         $form = $this->createFormBuilder()
@@ -75,6 +76,7 @@ class QuestionController extends Controller
         return $this->render('question/show.html.twig', [
             'form' => $form->createView(),
             'questionRef' => $questionData['ref'],
+            'description' => $description,
         ]);
     }
 }

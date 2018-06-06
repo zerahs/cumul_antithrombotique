@@ -4,5 +4,13 @@
     <div class="container">
         <h1>Vignette #TODO - Question {{ questionRef }}</h1>
         {{ form(form) }}
+
+
+        <a href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
+            Voir / Cacher la présentation
+        </a>
+        <div class="collapse description">
+            {{ description|raw }}
+        </div>
     </div>
 {% endblock %}
