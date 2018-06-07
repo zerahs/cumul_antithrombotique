@@ -98,6 +98,22 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/fin-controle", name="end_control")
+     */
+    public function endControlAction()
+    {
+        return $this->render('default/end_control.html.twig');
+    }
+
+    /**
+     * @Route("/fin-outil", name="end_tool")
+     */
+    public function endToolAction()
+    {
+        return $this->render('default/end_tool.html.twig');
+    }
+
+    /**
      * @Route("/exit", name="exit")
      */
     public function exitAction()

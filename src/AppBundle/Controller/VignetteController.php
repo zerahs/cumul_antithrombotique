@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Answer;
 use AppBundle\Entity\Participant;
+use AppBundle\Manager\RandomizationManager;
 use AppBundle\Model\Vignette;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,6 +36,7 @@ class VignetteController extends Controller
         $questionData = $vignetteManager->getQuestionData();
         $description = $vignetteManager->getVignette()->getDescription();
         $multiple = $vignetteManager->questionIsMultiple();
+        $vignetteKey = $vignetteManager->getVignetteKey();
 
         $form = $this->createFormBuilder()
             ->add('answers', ChoiceType::class, [
@@ -69,17 +71,26 @@ class VignetteController extends Controller
             $em->flush();
 
             // Load next question or next vignette
-            $nextVignette = $vignetteManager->loadNextQuestion();
-            if($nextVignette === true){
+            $next = $vignetteManager->loadNextQuestion();
+            if($next === 'NEXT_VIGNETTE'){
                 return $this->redirectToRoute('vignette_description');
             }
-            return $this->redirectToRoute('vignette_question');
+            elseif($next === 'NEXT_QUESTION'){
+                return $this->redirectToRoute('vignette_question');
+            }
+
+            // End of vignettes
+            if($participant->getRandomizationGroup() == RandomizationManager::GROUP_CONTROL){
+                return $this->redirectToRoute('end_control');
+            }
+            return $this->redirectToRoute('end_tool');
         }
 
         return $this->render('vignette/question.html.twig', [
             'form' => $form->createView(),
             'questionRef' => $questionData['ref'],
             'description' => $description,
+            'vignetteKey' => $vignetteKey+1,
         ]);
     }
 
@@ -90,9 +101,11 @@ class VignetteController extends Controller
     public function descriptionAction(Request $request)
     {
         $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
+        $vignetteKey = $vignetteManager->getVignetteKey();
 
         return $this->render('vignette/description.html.twig', [
             'description' => $vignetteManager->getVignette()->getDescription(),
+            'vignetteKey' => $vignetteKey+1,
         ]);
     }
 }

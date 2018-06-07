@@ -50,6 +50,11 @@ class VignetteManager
         $this->vignette->load($this->vignetteId);
     }
 
+    public function getVignetteKey()
+    {
+        return $this->vignetteKey;
+    }
+
     public function getVignette()
     {
         return $this->vignette;
@@ -87,9 +92,7 @@ class VignetteManager
             // @TODO THE END
             if($this->vignetteKey >= self::MAX_VIGNETTES_NB -1){
                 $this->session->clear();
-                dump('the end');
-                exit();
-                return;
+                return 'END';
             }
             // Set next vignette
             $participant = $this->participantRepository->find($this->participantId);
@@ -101,13 +104,13 @@ class VignetteManager
             // Set to first question
             $this->questionId = 0;
             $this->session->set('question_id', $this->questionId);
-            return true;
+            return 'NEXT_VIGNETTE';
         }
 
         // Or just next question
         $this->questionId += 1;
         $this->session->set('question_id', $this->questionId);
-        return false;
+        return 'NEXT_QUESTION';
     }
 
     private function questionShouldAppear($questionData)

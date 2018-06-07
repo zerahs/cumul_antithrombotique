@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Présentation du cas</h1>
+    <h1>Présentation du cas - {{vignetteKey}}/3</h1>
     {{ description|raw }}
     <div class="text-center">
         <a class="btn btn-primary" href="{{ path('vignette_question') }}">Commencer</a>
