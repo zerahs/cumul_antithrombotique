@@ -4,6 +4,7 @@ parameters:
     #parameter_name: value
     vignettes_dir: "%kernel.project_dir%/data/vignettes"
     randomization_dir: "%kernel.project_dir%/data/randomization"
+    download_dir: "%kernel.project_dir%/data/download"
 
 services:
     # default configuration for services in *this* file

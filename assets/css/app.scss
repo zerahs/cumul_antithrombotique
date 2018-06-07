@@ -13,6 +13,9 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 }
 
 form{
+	input,select{
+		max-width: 500px;
+	}
 	label{
 		font-weight: normal;
 	}

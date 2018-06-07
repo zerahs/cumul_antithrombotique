@@ -91,6 +91,7 @@ class VignetteController extends Controller
             'questionRef' => $questionData['ref'],
             'description' => $description,
             'vignetteKey' => $vignetteKey+1,
+            'isGroupTool' => $participant->getRandomizationGroup() == RandomizationManager::GROUP_TOOL,
         ]);
     }
 

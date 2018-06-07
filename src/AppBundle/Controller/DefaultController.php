@@ -121,4 +121,34 @@ class DefaultController extends Controller
         return $this->render('default/exit.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/telecharger/outil", name="download_tool")
+     */
+    public function downloadToolAction()
+    {
+        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-outil.pdf';
+
+        return $this->file($pdfPath);
+    }
+
+    /**
+     * @Route("/telecharger/legende", name="download_caption")
+     */
+    public function downloadCaptionAction()
+    {
+        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-legende.pdf';
+
+        return $this->file($pdfPath);
+    }
+
+    /**
+     * @Route("/telecharger/exemples", name="download_examples")
+     */
+    public function downloadExamplesAction()
+    {
+        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-exemples.pdf';
+
+        return $this->file($pdfPath);
+    }
 }
