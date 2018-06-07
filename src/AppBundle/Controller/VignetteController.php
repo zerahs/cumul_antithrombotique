@@ -24,9 +24,6 @@ class VignetteController extends Controller
      */
     public function questionAction(Request $request)
     {
-        // @TODO - randomisation
-        // @TODO - load vignette and question number from session info
-
         if( ($participantId=$this->get('session')->get('participant_id')) == null){
             return $this->redirectToRoute('homepage');
         }
@@ -101,6 +98,9 @@ class VignetteController extends Controller
      */
     public function descriptionAction(Request $request)
     {
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
         $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
         $vignetteKey = $vignetteManager->getVignetteKey();
 

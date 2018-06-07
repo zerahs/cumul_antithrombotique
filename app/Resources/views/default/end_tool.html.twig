@@ -9,10 +9,13 @@
         Néanmoins, nous vous demandons de ne pas communiquer l’outil pour ne pas fausser les résultats de l’étude.<br>
         Bien confraternellement
     </p>
-    <p>
-        Concernant l’outil proposé, merci de noter les items suivants de 0 (pas du tout d’accord) à 10 (tout à fait d’accord) :
-    </p>
-    <div>
-        {{ form(form) }}
-    </div>
+
+    {% if form|default and participantId|default %}
+        <p>
+            Concernant l’outil proposé, merci de noter les items suivants de 0 (pas du tout d’accord) à 10 (tout à fait d’accord) :
+        </p>
+        <div>
+            {{ form(form) }}
+        </div>
+    {% endif %}
 {% endblock %} 

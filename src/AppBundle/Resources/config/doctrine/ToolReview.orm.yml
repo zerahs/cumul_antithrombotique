@@ -1,0 +1,37 @@
+AppBundle\Entity\ToolReview:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ToolReviewRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+            options:
+                unsigned: true
+    fields:
+        prescription:
+            type: smallint
+        changes:
+            type: smallint
+        clear:
+            type: smallint
+        operational:
+            type: smallint
+        useful:
+            type: smallint
+        ready:
+            type: smallint
+        recommend:
+            type: smallint
+        remarks:
+            type: text
+            nullable: true
+    manyToOne:
+        participant:
+            targetEntity: Participant
+            joinColumn:
+                name: participant_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

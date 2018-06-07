@@ -76,7 +76,8 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('remarks', TextareaType::class, [
-            	'label' => 'Quels sont les points du document qui pourraient être améliorés : informations inutiles, informations manquantes, suggestions de présentation différentes, etc:'
+            	'label' => 'Quels sont les points du document qui pourraient être améliorés : informations inutiles, informations manquantes, suggestions de présentation différentes, etc:',
+            	'required' => false,
             ])
         ;
     }

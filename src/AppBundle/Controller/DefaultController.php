@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Participant;
+use AppBundle\Entity\ToolReview;
 use AppBundle\Form\ParticipantType;
 use AppBundle\Form\ToolReviewType;
 use AppBundle\Manager\RandomizationManager;
@@ -111,15 +112,28 @@ class DefaultController extends Controller
      */
     public function endToolAction(Request $request)
     {
+        $review = new ToolReview();
         $participantId = $this->get('session')->get('participant_id');
-
-        $form = $this->createForm(ToolReviewType::class, []);
+        $form = $this->createForm(ToolReviewType::class, $review);
         $form->add('save', SubmitType::class);
         
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $participant = $em->getRepository('AppBundle:Participant')->find($participantId);
+
+            $review->setParticipant($participant);
+            $em->persist($review);
+            $em->flush();
+            $this->get('session')->clear();
+
+            return $this->render('default/end_tool.html.twig');
+        }
+
         return $this->render('default/end_tool.html.twig', [
             'form' => $form->createView(),
+            'participantId' => $participantId,
         ]);
     }
 

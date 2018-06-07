@@ -91,7 +91,6 @@ class VignetteManager
         if($this->questionId >= self::MAX_QUESTION_ID){
             // @TODO THE END
             if($this->vignetteKey >= self::MAX_VIGNETTES_NB -1){
-                $this->session->clear();
                 return 'END';
             }
             // Set next vignette
