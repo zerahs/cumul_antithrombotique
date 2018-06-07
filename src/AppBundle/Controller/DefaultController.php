@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Participant;
 use AppBundle\Form\ParticipantType;
+use AppBundle\Form\ToolReviewType;
 use AppBundle\Manager\RandomizationManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -108,9 +109,18 @@ class DefaultController extends Controller
     /**
      * @Route("/fin-outil", name="end_tool")
      */
-    public function endToolAction()
+    public function endToolAction(Request $request)
     {
-        return $this->render('default/end_tool.html.twig');
+        $participantId = $this->get('session')->get('participant_id');
+
+        $form = $this->createForm(ToolReviewType::class, []);
+        $form->add('save', SubmitType::class);
+        
+        $form->handleRequest($request);
+
+        return $this->render('default/end_tool.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**

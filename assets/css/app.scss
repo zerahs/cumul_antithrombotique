@@ -18,6 +18,12 @@ form{
 	}
 	label{
 		font-weight: normal;
+	}	
+}
+
+form[name="tool_review"]{
+	label.control-label{
+		font-weight: bold;
+		display: block;
 	}
-	
 }

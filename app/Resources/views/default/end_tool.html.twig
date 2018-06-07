@@ -3,27 +3,16 @@
 {% block body %}
     <h1>Merci</h1>
     <p>
-    	Nous vous remercions chaleureusement d’avoir participé à cette étude. Cela nous permettra d’évaluer les pratiques cliniques en médecine de ville et tenter au mieux d’aider les cliniciens dans leurs prescriptions d’antithrombotiques. 
-	</p>
-    <p>
-    	Néanmoins, nous vous demandons de ne pas communiquer l’outil pour ne pas fausser les résultats de l’étude. 
+        Nous vous remercions chaleureusement d’avoir participé à cette étude. Cela nous permettra d’évaluer les pratiques cliniques en médecine de ville et tenter au mieux d’aider les cliniciens dans leurs prescriptions d’antithrombotiques.
     </p>
     <p>
-	    Concernant l’outil proposé, merci de noter les items suivants de 0 (pas du tout d’accord) à 10 (tout à fait d’accord) :
-	    Ce document m’a aidé pour la prescription d’antithrombotiques pour les vignettes : …../10
-	    Ce document a modifié les réponses que j’aurais spontanément fait aux vignettes : …../10
-	    Le document proposé est clair : …../10
-	    Le document proposé est opérationnel : …../10
-	    Le document proposé est utile pour la pratique : …../10
-	    Je serais prêt à utiliser cet outil: …../10
-	    Je recommanderais l’utilisation de cet outil: …../10
-	</p>
-
-	<p>
-    	Remarques sur l’outil : Quels sont les points du document qui pourraient être améliorés : informations inutiles, informations manquantes, suggestions de présentation différentes, etc:
-	</p>
-
-    <p>
-    	Bien confraternellement
+        Néanmoins, nous vous demandons de ne pas communiquer l’outil pour ne pas fausser les résultats de l’étude.<br>
+        Bien confraternellement
     </p>
+    <p>
+        Concernant l’outil proposé, merci de noter les items suivants de 0 (pas du tout d’accord) à 10 (tout à fait d’accord) :
+    </p>
+    <div>
+        {{ form(form) }}
+    </div>
 {% endblock %} 
