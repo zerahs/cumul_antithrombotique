@@ -17,9 +17,8 @@ class ParticipantType extends AbstractType
             ->add('gender', ChoiceType::class, [
                 'placeholder' => 'Choisir dans la liste',
                 'choices' => [
-                    'Homme'=>'M',
-                    'Femme'=>'F',
-                    'Autre'=>'A',
+                    'Masculin'=>'M',
+                    'Féminin'=>'F',
                 ]
             ])
             ->add('specialty', ChoiceType::class, [

@@ -151,7 +151,7 @@ class DefaultController extends Controller
      */
     public function downloadToolAction()
     {
-        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-outil.pdf';
+        $pdfPath = $this->getParameter('download_dir').'/combi-AT-outil.pdf';
 
         return $this->file($pdfPath);
     }
@@ -161,7 +161,7 @@ class DefaultController extends Controller
      */
     public function downloadCaptionAction()
     {
-        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-legende.pdf';
+        $pdfPath = $this->getParameter('download_dir').'/combi-AT-legende.pdf';
 
         return $this->file($pdfPath);
     }
@@ -171,7 +171,7 @@ class DefaultController extends Controller
      */
     public function downloadExamplesAction()
     {
-        $pdfPath = $this->getParameter('download_dir').'/cumul-AT-exemples.pdf';
+        $pdfPath = $this->getParameter('download_dir').'/combi-AT-exemples.pdf';
 
         return $this->file($pdfPath);
     }

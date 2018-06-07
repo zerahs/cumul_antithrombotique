@@ -23,8 +23,8 @@ class Participant
     public function __construct()
     {
         //@TODO remove this
-        $this->age = 10;
-        $this->thesisDate = 1999;
+        // $this->age = 10;
+        // $this->thesisDate = 1999;
     }
 
     /**
