@@ -31,3 +31,23 @@ form[name="tool_review"]{
 .red{
 	color: red;
 }
+
+.index-schema{
+	text-align: center;
+	.panel{
+		background: #d9edf7;
+		border: 1px solid #31708f;
+		border-radius: 10px;
+	}
+}
+
+.warn{
+	color: #C00000;
+	margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.btn-home{
+	margin: 30px 0;
+	font-size: 20px;
+}

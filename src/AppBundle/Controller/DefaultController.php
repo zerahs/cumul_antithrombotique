@@ -43,7 +43,7 @@ class DefaultController extends Controller
             if($spe == 'cardioa' || $spe == 'cardiom'){
                 $randomization = $manager->randomizeCardio();
             }
-            elseif($spe == 'mg'){
+            elseif($spe == 'mga' || $spe == 'mgm'){
                 $randomization = $manager->randomizeMg();
             }
             else{

@@ -24,7 +24,9 @@ class ParticipantType extends AbstractType
             ->add('specialty', ChoiceType::class, [
                 'placeholder' => 'Choisir dans la liste',
                 'choices'=>[
-                    'Médecin généraliste'=>'mg',
+                    'Médecin généraliste avec pratique uniquement ambulatoire'=>'mga',
+                    'Médecin généraliste avec pratique uniquement hospitalière'=>'mgh',
+                    'Médecin généraliste avec pratique mixte (ambulatoire et hospitalière)'=>'mgm',
                     'Cardiologue avec pratique uniquement ambulatoire'=>'cardioa',
                     'Cardiologue avec pratique uniquement hospitalière'=>'cardioh',
                     'Cardiologue avec pratique mixte (ambulatoire et hospitalière)'=>'cardiom',

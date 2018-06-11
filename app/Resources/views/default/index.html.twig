@@ -1,30 +1,107 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="col-xs-12">
-        <h1>Etude Combi-AT</h1>
+    <div class="text-center">
+        Bonjour et bienvenue sur le portail de l’étude Combi-AT 
+    </div>
+
+    <div>
+        <p class="bold text-center">Pourquoi cette étude ?</p>
         <p>
-           Bonjour et bienvenue sur le portail de l’étude Combi-AT, étude originale visant à valider un nouvel outil d’aide à la prescription des antithrombotiques oraux (anticoagulant et / ou antiagrégant plaquettaire) en médecine de ville chez l’adulte.
-        </p>
-        <p>
-            L’étude consiste à répondre à 3 cas clinique décrivant des situations courantes de prescription d’antithrombotiques oraux en ville, sous forme de QCM. <b>Le temps moyen pour répondre à ces 3 cas cliniques est de 10 minutes.</b>
-        </p>
-        <p>
-            Pour ce faire, soit vous aurez à votre disposition un outil d’aide à la prescription (avec son guide d’utilisation qui vous permettra de comprendre très rapidement comment l’utiliser) pour répondre aux cas cliniques (vous ferez donc partie du groupe outil) ; soit vous répondrez aux cas cliniques sans l’outil, au plus proche de ce que vous auriez fait en consultation dans la situation décrite (vous ferez partie du groupe contrôle).
-        </p>
-        <p class="underline bold text-center">
-            Au terme de l’étude, tous les participants auront accès à l’outil qu’ils pourront conserver.
-        </p>
-        <p class="bold">
-            Néanmoins, nous vous demandons de ne pas communiquer l’outil pour ne pas fausser les résultats et insistons sur la nécessité de bien compléter les 3 vignettes. Les données seront strictement anonymes.
-        </p>
-        <p class="text-center">
-            Vous pouvez arrêter et reprendre cette étude quand vous le souhaitez mais sur le même ordinateur uniquement.
+            Avec le progrès médical, il existe de plus en plus d’indications aux combinaisons anti-thrombotiques (bi ou trithérapie associant anticoagulant et/ou antiagrégants). Cependant, il n’est pas toujours aisé pour un médecin de savoir quel(s) anti-thrombotique(s) est (sont) recommandé(s), à quelle(s) dose(s) et pour combien de temps dans la situation particulière de son patient. En effet, les recommandations sont multiples, axées le plus souvent sur une maladie et sont très souvent mises à jour (parfois dans la même année).
         </p>
     </div>
 
-    <div class="col-xs-12 text-center">
-        <a href="{{ path('participant') }}" class="btn btn-primary">
+    <div>
+        <p class="bold text-center">Quel est l’objectif de l’étude ?</p>
+        <p>
+            Evaluer si l’utilisation d’un outil d’aide à la prescription des combinaisons anti-thrombotiques permet  au médecin d’établir plus facilement des prescriptions en accord avec les recommandations. 
+        </p>
+    </div>
+
+    <div>
+        <p class="bold text-center">Pourquoi participer ?</p>
+        <p>
+            L’étude est rapide (10 min en moyenne). 
+            L’outil d’aide à la prescription vous sera remis en guise de remerciement à la fin de l’étude.
+            Vous contribuez à développer une action d’aide à la prescription des anti-thrombotiques, classe thérapeutique la plus en cause dans les accidents médicamenteux graves et évitables.
+        </p>
+    </div>
+    
+
+    <div class="index-schema">
+        <p class="bold text-center">Comment cela se passe en pratique ?</p>
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Cliquez sur le bouton « commencer l’étude
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Remplissez  quelques données concernant votre pratique médicale 
+                Ces données comme les réponses ensuite sont totalement anonyme
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Possibilité 1 : Groupe « intervention »
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Découvrez l’outil (éventuellement avec l’aide du guide de prise en main)
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Répondez aux QCM des 3 cas cliniques 
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        C’est fini.
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Possibilité 2 : Groupe « contrôle »
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Répondez aux QCM des 3 cas cliniques au plus proche de ce que vous auriez fait en consultation dans la « vraie vie »
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        C’est fini.
+                        Pour vous remercier, nous vous transmettons l’outil avec son guide de « prise en main »
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="warn text-center">
+        Merci de ne pas communiquer l’outil pour ne pas fausser les résultats
+    </div>
+
+
+    <div class="bold">
+        Vous pouvez arrêter et reprendre cette étude quand vous le souhaitez mais sur le même ordinateur uniquement.
+    </div>
+
+    <div class="text-center">
+        <a href="{{ path('participant') }}" class="btn btn-primary btn-home">
             Participer à l'étude
         </a>
     </div>
