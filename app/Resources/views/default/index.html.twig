@@ -21,11 +21,11 @@
 
     <div>
         <p class="bold text-center">Pourquoi participer ?</p>
-        <p>
-            L’étude est rapide (10 min en moyenne). 
-            L’outil d’aide à la prescription vous sera remis en guise de remerciement à la fin de l’étude.
-            Vous contribuez à développer une action d’aide à la prescription des anti-thrombotiques, classe thérapeutique la plus en cause dans les accidents médicamenteux graves et évitables.
-        </p>
+        <ul class="simple-list">
+            <li>L’étude est rapide (10 min en moyenne).</li>
+            <li>L’outil d’aide à la prescription vous sera remis en guise de remerciement à la fin de l’étude.</li>
+            <li>Vous contribuez à développer une action d’aide à la prescription des anti-thrombotiques, classe thérapeutique la plus en cause dans les accidents médicamenteux graves et évitables.</li>
+        </ul>
     </div>
     
 
@@ -34,31 +34,31 @@
         
         <div class="panel panel-default">
             <div class="panel-body">
-                Cliquez sur le bouton « commencer l’étude
+                Cliquez sur le bouton "Commencer l’étude"
             </div>
         </div>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                Remplissez  quelques données concernant votre pratique médicale 
-                Ces données comme les réponses ensuite sont totalement anonyme
+                Remplissez quelques données concernant votre pratique médicale.
+                Ces données comme les réponses ensuite sont totalement anonymes
             </div>
         </div>
         
 
         <div class="row">
             <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
+                <div class="panel panel-default arrow_box">
+                    <div class="panel-body underline">
                         Possibilité 1 : Groupe « intervention »
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default arrow_box">
                     <div class="panel-body">
                         Découvrez l’outil (éventuellement avec l’aide du guide de prise en main)
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default arrow_box">
                     <div class="panel-body">
                         Répondez aux QCM des 3 cas cliniques 
                     </div>
@@ -70,19 +70,23 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
+                <div class="panel panel-default arrow_box">
+                    <div class="panel-body underline">
                         Possibilité 2 : Groupe « contrôle »
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default arrow_box">
                     <div class="panel-body">
                         Répondez aux QCM des 3 cas cliniques au plus proche de ce que vous auriez fait en consultation dans la « vraie vie »
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default arrow_box">
                     <div class="panel-body">
                         C’est fini.
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
                         Pour vous remercier, nous vous transmettons l’outil avec son guide de « prise en main »
                     </div>
                 </div>
@@ -102,7 +106,7 @@
 
     <div class="text-center">
         <a href="{{ path('participant') }}" class="btn btn-primary btn-home">
-            Participer à l'étude
+            Commencer l'étude
         </a>
     </div>
 {% endblock %}
