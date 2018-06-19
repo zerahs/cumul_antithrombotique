@@ -5,6 +5,16 @@
         <h1>Bonjour et bienvenue sur le portail de l’étude Combi-AT </h1>
     </div>
 
+    {% if participantId|default %}
+        <div class="retry">
+            Vous avez un questionnaire en cours, cliquez ci-dessous pour reprendre où vous vous étiez arrêté
+            <div>
+                <a href="{{ path('vignette_question') }}" class="btn btn-primary">
+                    Reprendre l'étude
+                </a>
+            </div>
+        </div>
+    {% endif %}
     <div>
         <p class="bold text-center">Pourquoi cette étude ?</p>
         <p>

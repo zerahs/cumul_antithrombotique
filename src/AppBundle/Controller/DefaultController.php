@@ -19,7 +19,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $participantId = $this->get('session')->get('participant_id');
         return $this->render('default/index.html.twig', [
+            'participantId' => $participantId,
         ]);
     }
 
@@ -115,7 +117,10 @@ class DefaultController extends Controller
         $review = new ToolReview();
         $participantId = $this->get('session')->get('participant_id');
         $form = $this->createForm(ToolReviewType::class, $review);
-        $form->add('save', SubmitType::class);
+        $form->add('save', SubmitType::class, [
+            'label' => 'Envoyer',
+            'attr' => ['class' => 'btn btn-primary',],
+        ]);
         
         $form->handleRequest($request);
 
