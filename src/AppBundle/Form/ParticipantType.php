@@ -33,7 +33,16 @@ class ParticipantType extends AbstractType
                     'Autres'=>'autres',
                 ]
             ])
-            ->add('thesisDate')
+            ->add('thesisDate', ChoiceType::class, [
+                'placeholder' => 'Choisir dans la liste',
+                'choices'=>[
+                    'moins d\'un an'=>'moins d\'un an',
+                    '1 à 5 ans'=>'1 à 5 ans',
+                    '5 à 10 ans'=>'5 à 10 ans',
+                    '10 à 20 ans'=>'10 à 20 ans',
+                    '20 ans et plus'=>'20 ans et plus',
+                ]
+            ])
             ->add('cumulPercent', ChoiceType::class, [
                 'placeholder' => 'Choisir dans la liste',
                 'choices'=>[
