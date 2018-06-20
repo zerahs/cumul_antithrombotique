@@ -1,32 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="row">
-		<div class="col-sm-8">
-		    <h1>Vignette {{vignetteKey}}/3 - Question {{ questionRef }}</h1>
-	        
-		    {{form_errors(form)}}
-    		{{ form_start(form) }}
-    			{{ form_row(form.answers) }}
-	        	{{ form_widget(form.save, {'label':'Continuer', 'attr':{'class':'btn btn-primary'}}) }}
-	    	{{ form_end(form) }}
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Vignette {{vignetteKey}}/3 - Question {{ questionRef }}</h1>
+            
+            {{form_errors(form)}}
+            {{ form_start(form) }}
+                {{ form_row(form.answers) }}
+                {{ form_widget(form.save, {'label':'Continuer', 'attr':{'class':'btn btn-primary'}}) }}
+            {{ form_end(form) }}
 
 
-		    <a href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
-		        Voir / Cacher l'énoncé de la vignette
-		    </a>
-		    <div class="collapse description">
-		        {{ description|raw }}
-		    </div>
-		</div>
-		{% if isGroupTool %}
-		<div class="col-sm-4">
-			<h2>Rappel de l'outil</h2>
-			<p>
-				Vous êtes dans le groupe outil. Vous pouvez re-télécharger l'outil si dessous si vous n'y avez plus accès :
-			</p>
-			{{ include('default/_tool_download.html.twig') }}
-		</div>
-		{% endif %}
-	</div>
+            <a class="btn btn-info desc-button" href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
+                Voir / Cacher l'énoncé de la vignette
+            </a>
+            <div class="collapse description">
+                {{ description|raw }}
+            </div>
+        </div>
+        {% if isGroupTool %}
+        <div class="col-sm-4">
+            <h2>Rappel de l'outil</h2>
+            <p>
+                Vous êtes dans le groupe outil. Vous pouvez re-télécharger l'outil si dessous si vous n'y avez plus accès :
+            </p>
+            {{ include('default/_tool_download.html.twig') }}
+        </div>
+        {% endif %}
+    </div>
 {% endblock %}

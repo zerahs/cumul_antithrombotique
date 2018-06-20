@@ -13,7 +13,7 @@ class ToolReviewType extends AbstractType
     {
         $builder
             ->add('prescription', ChoiceType::class, [
-                'label' => 'Ce document m’a aidé pour la prescription d’antithrombotiques pour les vignettes',
+                'label' => 'L\'outil d\'aide à la prescription m’a aidé pour la prescription d’antithrombotiques pour les vignettes',
                 'label_attr' => [
                 	'class' => 'radio-inline',
                 ],
@@ -22,7 +22,7 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('changes', ChoiceType::class, [
-            	'label' => 'Ce document a modifié les réponses que j’aurais spontanément fait aux vignettes',
+            	'label' => 'L\'outil d\'aide à la prescription a modifié les réponses que j’aurais spontanément fait aux vignettes',
                 'label_attr' => [
                 	'class' => 'radio-inline',
                 ],
@@ -31,7 +31,7 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('clear', ChoiceType::class, [
-            	'label' => 'Le document proposé est clair',
+            	'label' => 'L\'outil d\'aide à la prescription proposé est clair',
                 'label_attr' => [
                 	'class' => 'radio-inline',
                 ],
@@ -40,7 +40,7 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('operational', ChoiceType::class, [
-            	'label' => 'Le document proposé est opérationnel',
+            	'label' => 'L\'outil d\'aide à la prescription proposé est facile à utiliser',
                 'label_attr' => [
                 	'class' => 'radio-inline',
                 ],
@@ -49,7 +49,7 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('useful', ChoiceType::class, [
-            	'label' => 'Le document proposé est utile pour la pratique',
+            	'label' => 'L\'outil d\'aide à la prescription proposé est utile pour la pratique',
                 'label_attr' => [
                 	'class' => 'radio-inline',
                 ],
@@ -76,7 +76,7 @@ class ToolReviewType extends AbstractType
                 'choices'=>range(0,10),
             ])
             ->add('remarks', TextareaType::class, [
-            	'label' => 'Quels sont les points du document qui pourraient être améliorés : informations inutiles, informations manquantes, suggestions de présentation différentes, etc:',
+            	'label' => 'Nous sommes en train de développer une version numérique accessible en ligne pour tous. Quels sont les points de l\'outil d\'aide à la prescription qui pourraient être améliorés : informations inutiles, informations manquantes, suggestions de présentation différentes, etc:',
             	'required' => false,
             ])
         ;

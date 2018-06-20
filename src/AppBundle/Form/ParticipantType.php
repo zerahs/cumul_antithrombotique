@@ -37,19 +37,19 @@ class ParticipantType extends AbstractType
                 'placeholder' => 'Choisir dans la liste',
                 'choices'=>[
                     'moins d\'un an'=>'moins d\'un an',
-                    '1 à 5 ans'=>'1 à 5 ans',
-                    '5 à 10 ans'=>'5 à 10 ans',
-                    '10 à 20 ans'=>'10 à 20 ans',
-                    '20 ans et plus'=>'20 ans et plus',
+                    '2 à 5 ans'=>'2 à 5 ans',
+                    '6 à 10 ans'=>'6 à 10 ans',
+                    '11 à 20 ans'=>'11 à 20 ans',
+                    '21 ans et plus'=>'21 ans et plus',
                 ]
             ])
             ->add('cumulPercent', ChoiceType::class, [
                 'placeholder' => 'Choisir dans la liste',
                 'choices'=>[
-                    '< 5%'=>'< 5%',
-                    '5% - 10%'=>'5% - 10%',
+                    '≤ 5%'=>'≤ 5%',
+                    '6% - 10%'=>'6% - 10%',
                     '11% - 20%'=>'11% - 20%',
-                    '> 20%'=>'> 20%',
+                    '≥ 21%'=>'≥ 21%',
                 ]
             ])
             ->add('atEase', ChoiceType::class, [
