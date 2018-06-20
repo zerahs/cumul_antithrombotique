@@ -2,13 +2,13 @@
 
 {% block body %}
     <div class="text-center">
-        <h1>Bonjour et bienvenue sur le portail de l’étude Combi-AT </h1>
+        <h1 class="title">Bonjour et bienvenue sur le portail de l’étude Combi-AT </h1>
     </div>
 
     {% if participantId|default %}
-        <div class="retry">
+        <div>
             Vous avez un questionnaire en cours, cliquez ci-dessous pour reprendre où vous vous étiez arrêté
-            <div>
+            <div class="retry">
                 <a href="{{ path('vignette_question') }}" class="btn btn-primary">
                     Reprendre l'étude
                 </a>
@@ -16,21 +16,21 @@
         </div>
     {% endif %}
     <div>
-        <p class="bold text-center">Pourquoi cette étude ?</p>
+        <h2>Pourquoi cette étude ?</h2>
         <p>
             Avec le progrès médical, il existe de plus en plus d’indications aux combinaisons anti-thrombotiques (bi ou trithérapie associant anticoagulant et/ou antiagrégants). Cependant, il n’est pas toujours aisé pour un médecin de savoir quel(s) anti-thrombotique(s) est (sont) recommandé(s), à quelle(s) dose(s) et pour combien de temps dans la situation particulière de son patient. En effet, les recommandations sont multiples, axées le plus souvent sur une maladie et sont très souvent mises à jour (parfois dans la même année).
         </p>
     </div>
 
     <div>
-        <p class="bold text-center">Quel est l’objectif de l’étude ?</p>
+        <h2>Quel est l’objectif de l’étude ?</h2>
         <p>
             Evaluer si l’utilisation d’un outil d’aide à la prescription des combinaisons anti-thrombotiques permet  au médecin d’établir plus facilement des prescriptions en accord avec les recommandations. 
         </p>
     </div>
 
     <div>
-        <p class="bold text-center">Pourquoi participer ?</p>
+        <h2>Pourquoi participer ?</h2>
         <ul class="simple-list">
             <li>L’étude est rapide (10 min en moyenne).</li>
             <li>L’outil d’aide à la prescription vous sera remis en guise de remerciement à la fin de l’étude.</li>
@@ -40,7 +40,7 @@
     
 
     <div class="index-schema">
-        <p class="bold text-center">Comment cela se passe en pratique ?</p>
+        <h2>Comment cela se passe en pratique ?</h2>
         
         <div class="panel panel-default">
             <div class="panel-body">
