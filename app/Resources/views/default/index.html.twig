@@ -115,13 +115,13 @@
     </div>
 
     {% if participantId|default %}
-        <div>
+        {# <div>
             <div class="retry">
                 <a href="{{ path('vignette_question') }}" class="btn btn-primary">
                     Reprendre mon questionnaire
                 </a>
             </div>
-        </div>
+        </div> #}
     {% else %}
         <div class="text-center">
             <a href="{{ path('participant') }}" class="btn btn-primary btn-home">
