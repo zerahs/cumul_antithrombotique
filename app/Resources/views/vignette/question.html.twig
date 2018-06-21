@@ -4,7 +4,9 @@
     <div class="row">
         <div class="col-sm-8">
             <h1>Vignette {{vignetteKey}}/3 - Question {{ questionRef }}</h1>
-            
+            <div class="description">
+                {{ description|raw }}
+            </div>
             {{form_errors(form)}}
             {{ form_start(form) }}
                 {{ form_row(form.answers) }}
@@ -12,12 +14,9 @@
             {{ form_end(form) }}
 
 
-            <a class="btn btn-info btn-desc" href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
+            {# <a class="btn btn-info btn-desc" href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
                 Voir / Cacher l'énoncé de la vignette
-            </a>
-            <div class="collapse description">
-                {{ description|raw }}
-            </div>
+            </a> #}
         </div>
         {% if isGroupTool %}
         <div class="col-sm-4">
