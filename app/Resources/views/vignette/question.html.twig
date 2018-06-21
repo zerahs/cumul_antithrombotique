@@ -5,13 +5,17 @@
         <div class="col-sm-8">
             <h1>Vignette {{vignetteKey}}/3 - Question {{ questionRef }}</h1>
             <div class="description">
+                <h2>Enoncé</h2>
                 {{ description|raw }}
             </div>
-            {{form_errors(form)}}
-            {{ form_start(form) }}
-                {{ form_row(form.answers) }}
-                {{ form_widget(form.save, {'label':'Continuer', 'attr':{'class':'btn btn-primary'}}) }}
-            {{ form_end(form) }}
+            <div>
+                <h2>Question</h2>
+                {{form_errors(form)}}
+                {{ form_start(form) }}
+                    {{ form_row(form.answers) }}
+                    {{ form_widget(form.save, {'label':'Continuer', 'attr':{'class':'btn btn-primary'}}) }}
+                {{ form_end(form) }}
+            </div>
 
 
             {# <a class="btn btn-info btn-desc" href="#" data-toggle="collapse" data-target=".description" aria-expanded="false">
