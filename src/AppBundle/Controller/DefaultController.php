@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    // @TODO export answers format
 
     /**
      * @Route("/", name="homepage")
@@ -120,6 +119,9 @@ class DefaultController extends Controller
         if( ($participantId=$this->get('session')->get('participant_id')) == null){
             return $this->redirectToRoute('homepage');
         }
+        // Reset session
+        $this->get('session')->clear();
+
         return $this->render('default/end_control.html.twig');
     }
 
