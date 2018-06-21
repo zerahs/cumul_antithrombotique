@@ -10,7 +10,7 @@
             Vous avez un questionnaire en cours, cliquez ci-dessous pour reprendre où vous vous étiez arrêté
             <div class="retry">
                 <a href="{{ path('vignette_question') }}" class="btn btn-primary">
-                    Reprendre l'étude
+                    Reprendre mon questionnaire
                 </a>
             </div>
         </div>
@@ -114,9 +114,19 @@
         Vous pouvez arrêter et reprendre cette étude quand vous le souhaitez mais sur le même ordinateur et même navigateur uniquement.
     </div>
 
-    <div class="text-center">
-        <a href="{{ path('participant') }}" class="btn btn-primary btn-home">
-            Commencer l'étude
-        </a>
-    </div>
+    {% if participantId|default %}
+        <div>
+            <div class="retry">
+                <a href="{{ path('vignette_question') }}" class="btn btn-primary">
+                    Reprendre mon questionnaire
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="text-center">
+            <a href="{{ path('participant') }}" class="btn btn-primary btn-home">
+                Commencer l'étude
+            </a>
+        </div>
+    {% endif %}
 {% endblock %}
