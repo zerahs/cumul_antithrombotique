@@ -24,10 +24,19 @@ class VignetteController extends Controller
      */
     public function questionAction(Request $request)
     {
+        // If no participant, redirect to homepage
         if( ($participantId=$this->get('session')->get('participant_id')) == null){
             return $this->redirectToRoute('homepage');
         }
         $participant = $this->getDoctrine()->getRepository('AppBundle:Participant')->find($participantId);
+
+        // If ended, redirect to end screen
+        if( $this->get('session')->get('end') == 1){
+            if($participant->getRandomizationGroup() == RandomizationManager::GROUP_CONTROL){
+                return $this->redirectToRoute('end_control');
+            }
+            return $this->redirectToRoute('end_tool');
+        }
 
         $vignetteManager = $this->get('AppBundle\Manager\VignetteManager');
         $questionData = $vignetteManager->getQuestionData();

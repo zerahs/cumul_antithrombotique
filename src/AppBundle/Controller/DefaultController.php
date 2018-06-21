@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
+    // @TODO export answers format
+
     /**
      * @Route("/", name="homepage")
      */
@@ -90,6 +92,10 @@ class DefaultController extends Controller
      */
     public function groupControlAction()
     {
+        // If no participant, redirect to homepage
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
         return $this->render('default/group_control.html.twig');
     }
 
@@ -98,6 +104,10 @@ class DefaultController extends Controller
      */
     public function groupToolAction()
     {
+        // If no participant, redirect to homepage
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
         return $this->render('default/group_tool.html.twig');
     }
 
@@ -106,6 +116,10 @@ class DefaultController extends Controller
      */
     public function endControlAction()
     {
+        // If no participant, redirect to homepage
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
         return $this->render('default/end_control.html.twig');
     }
 
@@ -114,6 +128,10 @@ class DefaultController extends Controller
      */
     public function endToolAction(Request $request)
     {
+        // If no participant, redirect to homepage
+        if( ($participantId=$this->get('session')->get('participant_id')) == null){
+            return $this->redirectToRoute('homepage');
+        }
         $review = new ToolReview();
         $participantId = $this->get('session')->get('participant_id');
         $form = $this->createForm(ToolReviewType::class, $review);
