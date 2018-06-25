@@ -12,7 +12,7 @@
         },
         {
             "ref":"2",
-            "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation?",
+            "text":"Quelle(s) molécule(s) d’antithrombotique(s) prescrivez-vous lors de cette consultation? (A noter, plusieurs molécules d'une même classe pourraient être recommandées, mais nous vous demandons de choisir ce que vous feriez vous dans le cas présent)",
             "answers":[
                 "warfarine (coumadine®)",
                 "aspirine (aspégic®)",
