@@ -65,10 +65,12 @@ class ParticipantType extends AbstractType
                 'placeholder' => 'Choisir dans la liste',
                 'choices'=>[
                     'oui'=>'oui',
-                    'non'=>'non',
+                    'non, mais je sais où je pourrais la trouver'=>'non, mais je sais où je pourrais la trouver',
+                    'non, et je ne sais pas où la trouver'=>'non, et je ne sais pas où la trouver',
                 ]
             ])
         ;
+
     }
 
 
